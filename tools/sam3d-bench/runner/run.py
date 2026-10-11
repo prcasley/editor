@@ -65,7 +65,7 @@ def git_rev(path: Path) -> str | None:
         return None
 
 
-def plan_cases(cases_root: Path, only: set[str] | None) -> list:
+def plan_cases(cases_root: Path, only: set[str] | None) -> tuple[list, list[str]]:
     dirs = [cases_root] if (cases_root / "ground-truth.json").is_file() else find_cases(cases_root)
     cases, problems = [], []
     for d in dirs:

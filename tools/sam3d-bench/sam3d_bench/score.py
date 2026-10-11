@@ -40,7 +40,7 @@ from .geometry import (
 from .objio import read_obj_triangles
 from .ply import read_ply_points
 from .pngio import read_mask
-from .raster import project, world_to_camera
+from .raster import project
 
 UP_CHOICES = ("auto", "+x", "-x", "+y", "-y", "+z", "-z")
 SCALE_METHODS = ("reference", "oracle-height", "metric-depth", "none")
@@ -101,7 +101,6 @@ def fit_object(points: np.ndarray, up: str, gt_dims: np.ndarray, trim_pct: float
     else:
         base = _frame_with_up(_up_vector(up))
         coords = points @ base.T
-        lo_y, hi_y = bbox(coords[:, 1:2], trim_pct)
         plan = coords[:, [0, 2]]
         if trim_pct > 0:
             # The rectangle fit uses the same trimmed extent so floaters cannot rotate it.
@@ -196,12 +195,6 @@ def scale_metric_depth(depth_path: str | Path, min_pixels: int = 50) -> ScalePro
     return provider
 
 
-def recon_to_camera(points: np.ndarray, case: Case) -> np.ndarray:
-    if case.camera is None:
-        raise ScoreError("case has no camera")
-    return world_to_camera(points, case.camera)
-
-
 # --- Metrics ------------------------------------------------------------------------------
 
 def gt_surface(case: Case, n: int, seed: int) -> tuple[np.ndarray, str]:
@@ -270,6 +263,10 @@ def score_case(case: Case, recon_path: str | Path, scale: ScaleProvider, up: str
         "recon": str(recon_path),
         "points": counts,
         "axis_assignment": fitted.assignment,
+        # Rows are the fitted width/height/depth axes in the reconstruction's frame: the first
+        # real runs read SAM 3D's up axis from here.
+        "recon_frame": {"obj_from_recon": fitted.obj_from_recon.round(6).tolist(),
+                        "bbox_center": fitted.center_recon.round(6).tolist()},
         "scale": {"method": sres.method, "value": sres.scale, "detail": sres.detail,
                   "exact_dimension": sres.exact_dim},
         "gt_dims_m": dict(zip(DIMENSIONS, map(float, gt))),
