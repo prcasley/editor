@@ -1,0 +1,7 @@
+cases/
+runs/
+results/
+checkpoints/
+tests/
+**/__pycache__/
+*.sh
