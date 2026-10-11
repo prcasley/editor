@@ -45,6 +45,7 @@ export const EXPECTED_OPENAI_TOOL_ANNOTATIONS = {
   delete_scene: policy(false, true, false),
   delete_zone: policy(false, true, false),
   divide_zone: policy(false, true, false),
+  draft_building_from_brief: policy(false, true, false),
   describe_node: policy(true, false, false),
   duplicate_level: policy(false, false, false),
   duplicate_zone: policy(false, true, false),

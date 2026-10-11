@@ -345,6 +345,19 @@
       }
     },
     {
+      "name": "draft_building_from_brief",
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false
+      },
+      "justifications": {
+        "readOnlyHint": "It is not read-only because it creates a building's levels, walls, rooms, openings and roof in the connected Pascal scene.",
+        "destructiveHint": "It replaces the empty levels of the empty building it fills; it refuses a building that holds anything.",
+        "openWorldHint": "It operates on the connected Pascal scene from a brief the agent supplies, without accessing the public internet."
+      }
+    },
+    {
       "name": "duplicate_level",
       "annotations": {
         "readOnlyHint": false,

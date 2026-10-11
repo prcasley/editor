@@ -15,6 +15,7 @@ import {
   createRoomTool,
   createStairTool,
   deleteNodeTool,
+  draftBuildingFromBriefTool,
   duplicateLevelTool,
   findByTypeTool,
   fitStairTool,
@@ -277,6 +278,45 @@ const SHARED_TOOLS: SharedTool[] = [
           }),
         )
         .optional(),
+      message: z.string(),
+      ...achievedOutput,
+      ...liveSyncOutput,
+    },
+  },
+  {
+    contract: draftBuildingFromBriefTool,
+    operation: AGENT_OPERATIONS.draft_building_from_brief,
+    // It replaces the empty levels of the empty building it fills.
+    annotations: DESTRUCTIVE_TOOL_ANNOTATIONS,
+    outputSchema: {
+      ok: z.literal(true),
+      buildingId: z.string(),
+      siteId: z.string().optional(),
+      replacedLevelIds: z.array(z.string()).optional(),
+      levelIds: z.array(z.string()),
+      stories: z.array(jsonObject),
+      balconies: z.array(jsonObject),
+      roofId: z.string(),
+      roofSegmentId: z.string(),
+      counts: z.record(z.string(), z.number()),
+      floorArea: jsonObject,
+      // Every value nobody measured: estimated from a photo, or assumed.
+      estimates: z.array(
+        z.object({
+          field: z.string(),
+          value: z.number(),
+          unit: z.enum(['m', 'deg', 'm2']),
+          source: z.enum(['estimated', 'default']),
+          confidence: z.number().optional(),
+          basis: z.string().optional(),
+        }),
+      ),
+      skippedOpenings: z
+        .array(z.object({ field: z.string(), code: z.string(), message: z.string() }))
+        .optional(),
+      limitations: z.array(z.string()).optional(),
+      foundationHeight: z.number(),
+      paintedWalls: z.number(),
       message: z.string(),
       ...achievedOutput,
       ...liveSyncOutput,

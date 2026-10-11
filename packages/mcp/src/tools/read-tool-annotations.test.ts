@@ -96,6 +96,7 @@ const TOOL_POLICIES = [
       'edit_collection',
       'create_from_template',
       'create_house_from_brief',
+      'draft_building_from_brief',
       'delete_node',
       'fit_stair',
       'remove_floor_opening',
