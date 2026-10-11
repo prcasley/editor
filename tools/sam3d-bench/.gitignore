@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+# Scorer and runner outputs are produced per run, not versioned.
+/results/
+/runs/
