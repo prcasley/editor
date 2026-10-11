@@ -1,0 +1,19 @@
+[project]
+name = "sam3d-bench"
+version = "0.1.0"
+description = "Measurement-accuracy benchmark for single-image 3D reconstruction (SAM 3D Objects)"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"

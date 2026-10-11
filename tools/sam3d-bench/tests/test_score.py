@@ -210,7 +210,7 @@ def test_metric_depth_hook_recovers_scale(tmp_path):
     w, h = 160, 120
     cam = look_at_camera([20.0, 9.0, 25.0], [0.0, 0.0, 0.0], 45.0, w, h)
     tris = box_triangles(GT)
-    depth, ids, _ = rasterize(tris, np.arange(len(tris)), cam)
+    depth, ids = rasterize(tris, np.arange(len(tris)), cam)
     mask = (ids >= 0).astype(np.uint8) * 255
     camera = {"convention": "opencv", "width": w, "height": h, "fx": cam.fx, "fy": cam.fy,
               "cx": cam.cx, "cy": cam.cy, "world_from_camera": cam.world_from_camera.tolist()}

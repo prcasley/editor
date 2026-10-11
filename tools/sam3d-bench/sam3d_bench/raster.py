@@ -44,19 +44,26 @@ def project(points_cam: np.ndarray, cam: Camera) -> np.ndarray:
 
 
 def rasterize(triangles_world: np.ndarray, ids: np.ndarray, cam: Camera,
-              near: float = 0.05) -> tuple[np.ndarray, np.ndarray, int]:
-    """Z-buffer T x 3 x 3 world triangles. Returns (depth H x W with inf background,
-    id map H x W with -1 background, number of triangles skipped for crossing `near`)."""
+              near: float = 0.05) -> tuple[np.ndarray, np.ndarray]:
+    """Z-buffer T x 3 x 3 world triangles (clipped at `near`). Returns (depth H x W with inf
+    background, id map H x W with -1 background)."""
     H, W = cam.height, cam.width
     depth = np.full((H, W), np.inf)
     idmap = np.full((H, W), -1, dtype=np.int64)
     tri_cam = world_to_camera(triangles_world.reshape(-1, 3), cam).reshape(-1, 3, 3)
-    skipped = 0
+    pieces, piece_ids = [], []
     for t, tid in zip(tri_cam, ids):
         z = t[:, 2]
-        if np.any(z <= near):
-            skipped += int(np.any(z > near))
-            continue
+        if np.all(z > near):
+            pieces.append(t)
+            piece_ids.append(tid)
+        elif np.any(z > near):
+            poly = _clip_near(t, near)
+            for k in range(1, len(poly) - 1):
+                pieces.append(np.array([poly[0], poly[k], poly[k + 1]]))
+                piece_ids.append(tid)
+    for t, tid in zip(pieces, piece_ids):
+        z = t[:, 2]
         uv = project(t, cam)
         x0, y0 = np.floor(uv.min(axis=0)).astype(int)
         x1, y1 = np.ceil(uv.max(axis=0)).astype(int)
@@ -80,4 +87,18 @@ def rasterize(triangles_world: np.ndarray, ids: np.ndarray, cam: Camera,
         closer = inside & (zz < win)
         win[closer] = zz[closer]
         idmap[y0:y1 + 1, x0:x1 + 1][closer] = tid
-    return depth, idmap, skipped
+    return depth, idmap
+
+
+def _clip_near(tri: np.ndarray, near: float) -> list[np.ndarray]:
+    """Sutherland-Hodgman clip of one camera-space triangle against z > near."""
+    out = []
+    for i in range(3):
+        p, q = tri[i], tri[(i + 1) % 3]
+        pin, qin = p[2] > near, q[2] > near
+        if pin:
+            out.append(p)
+        if pin != qin:
+            t = (near - p[2]) / (q[2] - p[2])
+            out.append(p + t * (q - p))
+    return out

@@ -4,3 +4,7 @@ __pycache__/
 # Scorer and runner outputs are produced per run, not versioned.
 /results/
 /runs/
+render.log
+render.out
+image.tmp.png
+depth-gt.npy
