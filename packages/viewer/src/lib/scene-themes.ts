@@ -26,6 +26,20 @@ export type SceneTheme = {
   }>
   toneMappingExposure: number
   clayTints?: Partial<Record<SurfaceRole, string>>
+  // Highlight colours for a theme with its own accent. Omitted → the stock
+  // white selection, the host's hover styles, yellow occluded edges and the
+  // appearance-derived grid.
+  highlight?: {
+    // Selection outline where the object is visible.
+    selected: string
+    // The `default` hover outline; mode-specific hover styles (delete, paint)
+    // keep their own colours because they carry meaning.
+    hovered: string
+    // Selection and hover outlines seen through other geometry.
+    occluded: string
+    gridCell: string
+    gridSection: string
+  }
 }
 
 export const SCENE_THEMES: SceneTheme[] = [
@@ -222,6 +236,35 @@ export const SCENE_THEMES: SceneTheme[] = [
       ceiling: '#f1f3ea',
       roof: '#6f8a5a',
       glazing: '#c4dcd0',
+    },
+  },
+  {
+    id: 'shadow-monarch',
+    name: 'Shadow Monarch',
+    appearance: 'dark',
+    background: '#140b24',
+    backgroundSky: '#05030a',
+    ground: '#2a1f42',
+    ambient: { color: '#c4b5fd', intensity: 0.3 },
+    hemi: { sky: '#7c5cc4', ground: '#140b24', intensity: 0.6 },
+    lights: [
+      { position: [10, 14, 10], color: '#f1eaff', intensity: 1.5, castShadow: true },
+      { position: [-12, 8, -10], color: '#a855f7', intensity: 0.8 },
+    ],
+    toneMappingExposure: 0.9,
+    clayTints: {
+      wall: '#c9c3d6',
+      floor: '#8e85a8',
+      ceiling: '#d4cee0',
+      roof: '#3d2b63',
+      glazing: '#b9a3e6',
+    },
+    highlight: {
+      selected: '#d8b4fe',
+      hovered: '#a855f7',
+      occluded: '#7c3aed',
+      gridCell: '#3b2566',
+      gridSection: '#7c3aed',
     },
   },
 ]

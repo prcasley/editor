@@ -54,11 +54,12 @@ export const Grid = ({
   revealRadius?: number
 }) => {
   const immersive = useImmersiveXRPresentation()
-  const isDark = useViewer((state) => getSceneTheme(state.sceneTheme).appearance === 'dark')
+  const theme = useViewer((state) => getSceneTheme(state.sceneTheme))
+  const isDark = theme.appearance === 'dark'
 
   // Use slightly lighter colors for dark themes' grid to make it apparent
-  const effectiveCellColor = isDark ? '#555566' : cellColor
-  const effectiveSectionColor = isDark ? '#666677' : sectionColor
+  const effectiveCellColor = theme.highlight?.gridCell ?? (isDark ? '#555566' : cellColor)
+  const effectiveSectionColor = theme.highlight?.gridSection ?? (isDark ? '#666677' : sectionColor)
 
   const cursorPositionRef = useRef(new Vector2(0, 0))
   // Scratch for reading a moving node's world Y (surface elevation) each frame.

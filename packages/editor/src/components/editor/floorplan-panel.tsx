@@ -4896,6 +4896,7 @@ export function FloorplanPanel({
   const setSelection = useViewer((state) => state.setSelection)
   const setPreviewSelectedIds = useViewer((state) => state.setPreviewSelectedIds)
   const isDark = useViewer((state) => getSceneTheme(state.sceneTheme).appearance === 'dark')
+  const highlight = useViewer((state) => getSceneTheme(state.sceneTheme).highlight)
   const unit = useViewer((state) => state.unit)
   const metricNotation = useViewer((state) => state.metricNotation)
   const showGrid = useViewer((state) => state.showGrid)
@@ -6829,7 +6830,7 @@ export function FloorplanPanel({
     viewBox,
   ])
 
-  const palette = useMemo(
+  const basePalette = useMemo(
     () =>
       isDark
         ? {
@@ -6945,6 +6946,23 @@ export function FloorplanPanel({
             curveHandleHoverStroke: '#14b8a6',
           },
     [isDark],
+  )
+  // A theme highlight recolours the plan the way it recolours the 3D grid and
+  // outlines, so both views read as the same selection.
+  const palette = useMemo(
+    () =>
+      highlight
+        ? {
+            ...basePalette,
+            minorGrid: highlight.gridCell,
+            majorGrid: highlight.gridSection,
+            selectedStroke: highlight.selected,
+            selectedSlabStroke: highlight.selected,
+            selectedCeilingStroke: highlight.selected,
+            wallHoverStroke: highlight.hovered,
+          }
+        : basePalette,
+    [basePalette, highlight],
   )
   const wallSelectionHatchId = useMemo(() => `floorplan-wall-selection-hatch-${isDark}`, [isDark])
   // Subset of the legacy palette surfaced to registry-driven kinds via

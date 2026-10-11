@@ -150,6 +150,10 @@ export const DEFAULT_HOVER_STYLES: HoverStyles = {
   default: DEFAULT_HOVER_STYLE,
 }
 
+// Selected: white visible, yellow hidden — unless the scene theme has a highlight.
+const DEFAULT_SELECTED_VISIBLE_COLOR = 0xff_ff_ff
+const DEFAULT_SELECTED_HIDDEN_COLOR = 0xf3_ff_47
+
 function sanitizeOutlineObjects(objects: Object3D[]) {
   let nextIndex = 0
 
@@ -278,6 +282,9 @@ const PostProcessingPasses = ({
   const hoverHiddenColor = useMemo(() => uniform(new Color(DEFAULT_HOVER_STYLE.hiddenColor)), [])
   const hoverStrength = useMemo(() => uniform(DEFAULT_HOVER_STYLE.strength), [])
   const hoverPulseMix = useMemo(() => uniform(DEFAULT_HOVER_STYLE.pulse ? 0 : 1), [])
+  const selectedVisibleColor = useMemo(() => uniform(new Color(DEFAULT_SELECTED_VISIBLE_COLOR)), [])
+  const selectedHiddenColor = useMemo(() => uniform(new Color(DEFAULT_SELECTED_HIDDEN_COLOR)), [])
+  const highlight = useViewer((s) => getSceneTheme(s.sceneTheme).highlight)
 
   // Subscribe to projectId so the pipeline rebuilds on project switch
   const projectId = useViewer((s) => s.projectId)
@@ -326,12 +333,18 @@ const PostProcessingPasses = ({
 
   useEffect(() => {
     const style = hoverStyles[hoverHighlightMode] ?? hoverStyles.default
-    hoverVisibleColor.value.setHex(style.visibleColor)
-    hoverHiddenColor.value.setHex(style.hiddenColor)
+    if (highlight && style === hoverStyles.default) {
+      hoverVisibleColor.value.set(highlight.hovered)
+      hoverHiddenColor.value.set(highlight.occluded)
+    } else {
+      hoverVisibleColor.value.setHex(style.visibleColor)
+      hoverHiddenColor.value.setHex(style.hiddenColor)
+    }
     hoverStrength.value = style.strength
     hoverPulseMix.value = style.pulse ? 0 : 1
     invalidate()
   }, [
+    highlight,
     hoverHiddenColor,
     hoverHighlightMode,
     hoverPulseMix,
@@ -340,6 +353,17 @@ const PostProcessingPasses = ({
     hoverVisibleColor,
     invalidate,
   ])
+
+  useEffect(() => {
+    if (highlight) {
+      selectedVisibleColor.value.set(highlight.selected)
+      selectedHiddenColor.value.set(highlight.occluded)
+    } else {
+      selectedVisibleColor.value.setHex(DEFAULT_SELECTED_VISIBLE_COLOR)
+      selectedHiddenColor.value.setHex(DEFAULT_SELECTED_HIDDEN_COLOR)
+    }
+    invalidate()
+  }, [highlight, invalidate, selectedHiddenColor, selectedVisibleColor])
 
   // Build / rebuild the post-processing pipeline
   useEffect(() => {
@@ -587,16 +611,13 @@ const PostProcessingPasses = ({
 
         resources.outline = outlineNode
 
-        // Selected: white visible, yellow hidden
-        const selectedVisibleColor = uniform(new Color(0xff_ff_ff))
-        const selectedHiddenColor = uniform(new Color(0xf3_ff_47))
         const selectedStrength = uniform(3)
         const selectedOutline = outlineNode.primaryVisibleEdge
           .mul(selectedVisibleColor)
           .add(outlineNode.primaryHiddenEdge.mul(selectedHiddenColor))
           .mul(selectedStrength)
 
-        // Hovered: blue visible, yellow hidden, pulsing
+        // Hovered: the host's hover style (or the theme highlight), pulsing
         const pulsePeriod = uniform(3)
         const oscillating = oscSine(time.div(pulsePeriod).mul(2)).mul(0.5).add(0.5)
         const osc = mix(oscillating, tslFloat(1), hoverPulseMix)
@@ -699,6 +720,8 @@ const PostProcessingPasses = ({
     projectId,
     renderer,
     scene,
+    selectedHiddenColor,
+    selectedVisibleColor,
     shading,
     transparentBackground,
     size.height,
