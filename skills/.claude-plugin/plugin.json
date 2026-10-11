@@ -22,5 +22,5 @@
       "required": false
     }
   },
-  "skills": ["./pascal-3d", "./furniture-fit"]
+  "skills": ["./pascal-3d", "./furniture-fit", "./photo-to-building"]
 }

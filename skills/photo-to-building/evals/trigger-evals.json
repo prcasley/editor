@@ -1,0 +1,42 @@
+{
+  "skill_name": "photo-to-building",
+  "evals": [
+    {
+      "query": "Here are photos of my house from the street and the back yard. Can you recreate it as a 3D model in Pascal?",
+      "should_trigger": true
+    },
+    {
+      "query": "Turn these listing photos of a duplex into an editable building model.",
+      "should_trigger": true
+    },
+    {
+      "query": "I took drone shots of this warehouse. Draft its massing, roof and dock doors in Pascal.",
+      "should_trigger": true
+    },
+    {
+      "query": "Use this street view of a corner shop to estimate how many storeys and windows it has and build it.",
+      "should_trigger": true
+    },
+    {
+      "query": "Digitize this existing apartment block from my site photos so the architect can edit it.",
+      "should_trigger": true
+    },
+    {
+      "query": "From these facade pictures, make a Pascal model of the building and tell me which numbers are guesses.",
+      "should_trigger": true
+    },
+    {
+      "query": "Design a new three-bedroom house for a 15 by 30 metre lot.",
+      "should_trigger": false
+    },
+    {
+      "query": "Will this 2.2 metre sofa fit in my living room in Pascal?",
+      "should_trigger": false
+    },
+    { "query": "Trace this floor plan image into walls and rooms.", "should_trigger": false },
+    {
+      "query": "Edit the colour of the photo's sky to make it more dramatic.",
+      "should_trigger": false
+    }
+  ]
+}

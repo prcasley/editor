@@ -1,0 +1,54 @@
+{
+  "skill_name": "photo-to-building",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Here are three photos of my two-storey house: the front from the street, the right side, and the back yard. The listing says 2,100 sq ft. Build it in Pascal so I can edit it.",
+      "expected_output": "Inventories the photos by facade, anchors scale on a door or storey, writes one brief with labelled estimates, checks the area against the listing before calling draft_building_from_brief, and reports the estimates, the area check and the unseen left facade.",
+      "files": [],
+      "expectations": [
+        "Assigns each photo to front, right or back before estimating, and states that the left facade is not visible.",
+        "Gives the listing area as knownFloorArea with source measured, and no other value as measured.",
+        "Compares footprint area x storeys with the listing before the call and explains any gap over 10%.",
+        "Calls draft_building_from_brief once with the whole brief rather than building wall by wall.",
+        "Reports the returned estimates, floorArea check, skippedOpenings and limitations in plain words, and names the most useful next measurement."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "This is one street photo of a small shop with a flat roof. I have no measurements at all. Make a quick 3D draft.",
+      "expected_output": "Drafts from a single photo, scaling from the shop door, marks the depth as a low-confidence estimate or default, leaves unseen facades without openings, and says the model is a draft from one photo.",
+      "files": [],
+      "expectations": [
+        "Uses a door or another standard element in the facade plane for scale and says which.",
+        "Gives the depth a low confidence (0.3 or less) and a basis, or leaves it to an explained default.",
+        "Does not invent openings on facades the photo does not show.",
+        "Uses roof type flat with no pitch.",
+        "States that every dimension is an estimate from one photo, not a measurement."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Model this L-shaped ranch house from these drone photos and the lot plan I attached, which gives the outside dimensions.",
+      "expected_output": "Uses a polygon footprint from the lot plan with source measured, refers to facades by edge index, and reports that the roof covers the bounding rectangle of the L as a limitation to fix in the editor.",
+      "files": [],
+      "expectations": [
+        "Uses a polygon footprint with outside corners, front edge first, anticlockwise on a north-up plan.",
+        "Marks the footprint as measured because it comes from the lot plan, and photo-derived heights as estimated.",
+        "Refers to polygon facades by edge index, not by front/right/back/left.",
+        "Relays the roof bounding-rectangle limitation rather than claiming an exact roof."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Build my house from these photos into my existing Pascal project. It already has a garage I modeled last week.",
+      "expected_output": "Does not overwrite the existing building: on a building_not_empty refusal it explains the choice instead of clearing the project, and clears only if the user asks to start over.",
+      "files": [],
+      "expectations": [
+        "Inspects the project before drafting.",
+        "Treats building_not_empty as an answer and does not call clear_scene unless the user asks to start over.",
+        "Offers a concrete option, such as a separate project for the draft, without deleting the garage."
+      ]
+    }
+  ]
+}

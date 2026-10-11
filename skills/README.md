@@ -27,12 +27,13 @@ List the available skills:
 npx skills add https://github.com/pascalorg/editor/tree/main/skills --list
 ```
 
-Install both skills:
+Install all three skills:
 
 ```bash
 npx skills add https://github.com/pascalorg/editor/tree/main/skills \
   --skill pascal-3d \
-  --skill furniture-fit
+  --skill furniture-fit \
+  --skill photo-to-building
 ```
 
 Install just the furniture workflow:
@@ -110,6 +111,7 @@ Gemini CLI copies the extension on install; run `gemini extensions update pascal
 | --- | --- |
 | [`pascal-3d`](pascal-3d/SKILL.md) | Connect Pascal safely, inspect or edit a scene, validate it, save it, and return a verified handoff. |
 | [`furniture-fit`](furniture-fit/SKILL.md) | Assess a furniture footprint at stated poses and report collisions, door keep-outs, evidence gaps, and one bounded blocker-aware next action. |
+| [`photo-to-building`](photo-to-building/SKILL.md) | Read photos of an existing building into a brief with every estimate labelled, draft the editable building with `draft_building_from_brief`, and report what was estimated. |
 
 Each skill is standalone. Its `references/`, `examples/`, and `evals/` folders travel with that skill when installed individually.
 

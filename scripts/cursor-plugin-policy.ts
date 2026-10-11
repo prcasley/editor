@@ -17,7 +17,7 @@ export function validateCursorPluginPackage(root: string): string[] {
   const config = read('skills/.cursor-plugin/mcp.json')
   const expectedManifest = {
     ...rootManifest,
-    skills: ['./pascal-3d', './furniture-fit'],
+    skills: ['./pascal-3d', './furniture-fit', './photo-to-building'],
     logo: '.cursor-plugin/pascal-mark-plate.svg',
   }
   if (JSON.stringify(manifest) !== JSON.stringify(expectedManifest)) {
@@ -69,6 +69,7 @@ export function validateCursorPluginPackage(root: string): string[] {
   for (const path of [
     'pascal-3d/SKILL.md',
     'furniture-fit/SKILL.md',
+    'photo-to-building/SKILL.md',
     '.cursor-plugin/pascal-mark-plate.svg',
   ]) {
     if (!existsSync(join(root, 'skills', path))) {

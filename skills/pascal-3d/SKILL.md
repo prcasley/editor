@@ -29,7 +29,7 @@ Use Pascal as the scene authority. Prefer its semantic tools and validation resu
 3. Follow [references/setup.md](references/setup.md) for the selected path. Never move a local project to hosted storage or create an account merely to complete setup.
 4. Read or create the intended project, make the smallest requested change, validate the result, persist it when the store supports persistence, and return the URL supplied by Pascal.
 
-If the task is a furniture or clearance assessment and the `furniture-fit` skill is installed, use that focused workflow after connection. Do not assume another skill is present.
+If the task is a furniture or clearance assessment and the `furniture-fit` skill is installed, use that focused workflow after connection. If the task is modelling an existing building from photos and the `photo-to-building` skill is installed, use it to write the brief. Do not assume another skill is present.
 
 ## Authority and data rules
 
@@ -55,7 +55,7 @@ Record the active project ID, scene ID or version, and graph hash when returned.
 
 ### Prefer semantic operations
 
-For construction, prefer tools such as `create_story_shell`, `create_room`, `add_door`, `add_window`, `create_roof`, `furnish_room`, and `place_items`. Use `apply_patch` only when no semantic tool expresses the requested edit and you have inspected the relevant node schema or an existing node of the same type.
+For construction, prefer tools such as `create_story_shell`, `create_room`, `add_door`, `add_window`, `create_roof`, `furnish_room`, and `place_items`. To model an existing building from photos, read them into a brief and call `draft_building_from_brief` once: it builds the storeys, walls, openings per facade, balconies, roof and finishes in one undo step. Give every number its source (`measured`, `estimated`, `default`) and a confidence; a bare number counts as an estimate. Report the `estimates` it returns, its `floorArea` check against any known area, and its `skippedOpenings`, and never call an estimate a measurement. Use `apply_patch` only when no semantic tool expresses the requested edit and you have inspected the relevant node schema or an existing node of the same type.
 
 A window `style` (double-hung, grid, transom…) shapes a Fixed window's panes. For a casement, sliding, hung, awning, louvered, bay or bow window, pass its `windowType` without a style: those types draw their own sashes, and a style there is refused (`style_needs_fixed_window`). `picture` is an alias of `single` (one pane): both are accepted and draw the same.
 

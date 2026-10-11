@@ -30,7 +30,7 @@ All three require edit access on the scan's own project; view access, including 
 ## Create an editable project
 
 1. `create_project`
-2. `create_house_from_brief` for a supported quick start, or semantic construction tools for precise control
+2. `create_house_from_brief` for a supported quick start, `draft_building_from_brief` for an existing building read from photos (one call, every estimate labelled and returned in `estimates`), or semantic construction tools for precise control
 3. Add openings and furniture with semantic tools
 4. `validate_scene`
 5. `verify_scene`
