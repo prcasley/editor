@@ -3,6 +3,7 @@ import { doorFacing, planWallOpening } from '../building/wall-openings'
 import { createZone } from '../commands/structure/create-zone'
 import { structureChangeBatch } from '../commands/structure/shared'
 import { type AnyNode, generateId, type WallNode } from '../schema'
+import type { DoorType, WindowType } from '../schema/nodes/opening-types'
 import { applySceneChanges } from './apply-changes'
 import { type LevelTargetInput, targetLevel } from './level-target'
 import { polygonArea, type Vec2 } from './plan-geometry'
@@ -18,9 +19,11 @@ type OpeningSpec = {
   hingesSide?: 'left' | 'right'
   swingDirection?: 'inward' | 'outward'
   style?: string
+  doorType?: DoorType
+  windowType?: WindowType
 }
 
-type CreateRoomInput = LevelTargetInput & {
+export type CreateRoomInput = LevelTargetInput & {
   name: string
   polygon: number[][]
   color?: string

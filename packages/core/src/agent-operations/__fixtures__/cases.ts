@@ -18,6 +18,7 @@ import {
   ZoneNode,
 } from '../../schema'
 import { CREATE_ROOM_CASES, FURNISH_ROOM_CASES } from './build-room-cases'
+import { DRAFT_BUILDING_CASES } from './draft-building-cases'
 import { PLACE_ITEMS_CASES } from './place-items-cases'
 import { FIND_BY_TYPE_CASES } from './find-by-type-cases'
 import { ROOM_CASES } from './room-cases'
@@ -779,4 +780,5 @@ export const AGENT_TOOL_CASES: readonly AgentToolCase[] = [
   ...CREATE_STAIR_CASES,
   ...PLACE_ITEMS_CASES,
   ...FIND_BY_TYPE_CASES,
+  ...DRAFT_BUILDING_CASES,
 ]

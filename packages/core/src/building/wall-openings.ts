@@ -199,7 +199,8 @@ export type WallOpeningInput = {
 
 const equalRatios = (count: number) => Array.from({ length: count }, () => 1 / count)
 
-const DEFAULTS = {
+/** A new door's and window's size when none is given, as the editor's tools make them. */
+export const WALL_OPENING_DEFAULTS = {
   door: { width: 0.9, height: 2.1 },
   window: { width: 1.5, height: 1.5, sillHeight: 0.9 },
 } as const
@@ -283,8 +284,8 @@ export function planWallOpening(nodes: Nodes, input: WallOpeningInput) {
   if (compiled && compiled.mount !== 'wall')
     refuse('wrong_mount', `A ${kind}'s script uses mount 'wall'.`, { mount: compiled.mount })
   const [scriptedWidth, scriptedHeight] = compiled ? scriptedSize(compiled.manifest) : []
-  const width = scriptedWidth ?? input.width ?? DEFAULTS[kind].width
-  const height = scriptedHeight ?? input.height ?? DEFAULTS[kind].height
+  const width = scriptedWidth ?? input.width ?? WALL_OPENING_DEFAULTS[kind].width
+  const height = scriptedHeight ?? input.height ?? WALL_OPENING_DEFAULTS[kind].height
   const wallLength = lengthOf(wall)
   if (wallLength < width)
     refuse(
@@ -294,7 +295,7 @@ export function planWallOpening(nodes: Nodes, input: WallOpeningInput) {
     )
 
   const rawX = along * wallLength
-  const sillHeight = input.sillHeight ?? DEFAULTS.window.sillHeight
+  const sillHeight = input.sillHeight ?? WALL_OPENING_DEFAULTS.window.sillHeight
   const rawY = kind === 'door' ? height / 2 : sillHeight + height / 2
   const { clampedX, clampedY } =
     kind === 'door'

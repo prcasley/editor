@@ -3,6 +3,7 @@ import { addWall } from './add-wall'
 import { createRoom } from './create-room'
 import { createStair } from './create-stair'
 import { deleteNode } from './delete-node'
+import { draftBuildingFromBrief } from './draft-building'
 import { duplicateLevel } from './duplicate-level'
 import { findByType } from './find-by-type'
 import { furnishRoom } from './furnish-room'
@@ -28,6 +29,7 @@ export * from './create-room'
 export * from './create-stair'
 export * from './delete-node'
 export * from './door-clearance'
+export * from './draft-building'
 export * from './duplicate-level'
 export * from './find-by-type'
 export * from './furnish-room'
@@ -70,6 +72,7 @@ export const AGENT_OPERATIONS = {
   delete_node: deleteNode,
   find_by_type: findByType,
   create_room: createRoom,
+  draft_building_from_brief: draftBuildingFromBrief,
   furnish_room: furnishRoom,
   search_assets: searchAssets,
   ...ROOM_OPERATIONS,

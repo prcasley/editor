@@ -1,5 +1,6 @@
 import { addObjectTool, getSourceTool } from './add-object'
 import { searchAssetsTool } from './assets'
+import { draftBuildingFromBriefTool } from './building-brief'
 import { clearSceneTool } from './clear-scene'
 import { editCollectionTool, listCollectionsTool } from './collections'
 import { addColumnTool } from './columns'
@@ -27,6 +28,7 @@ import { addWallTool } from './walls'
 export * from './achieved'
 export * from './add-object'
 export * from './assets'
+export * from './building-brief'
 export * from './clear-scene'
 export * from './collections'
 export * from './columns'
@@ -80,6 +82,7 @@ export const AGENT_TOOL_CONTRACTS = [
   listCollectionsTool,
   clearSceneTool,
   createRoomTool,
+  draftBuildingFromBriefTool,
   furnishRoomTool,
   searchAssetsTool,
   ...ROOM_TOOL_CONTRACTS,
