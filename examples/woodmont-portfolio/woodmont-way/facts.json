@@ -1,0 +1,398 @@
+{
+  "name": "Woodmont Way",
+  "type": "Garden-style luxury rental community (multifamily)",
+  "location": "West Windsor, Mercer County, NJ: off Meadow Road just west of US Route 1, behind MarketFair, along Canal Pointe Boulevard",
+  "summary": "A 443-unit, 13-building garden-style rental community completed in 2022, with a two-story clubhouse, a resort-style pool with cabana, detached garages, and a private patio or balcony for every home.",
+  "sources": [
+    {
+      "id": "renj-2021-03",
+      "title": "Woodmont launches leasing at 443-unit rental property near Princeton",
+      "publisher": "Real Estate NJ",
+      "date": "2021-03-11",
+      "url": "https://re-nj.com/woodmont-launches-leasing-at-443-unit-rental-property-near-princeton/"
+    },
+    {
+      "id": "renj-2021-10",
+      "title": "Woodmont marks opening, leasing momentum at new West Windsor rentals",
+      "publisher": "Real Estate NJ",
+      "date": "2021-10-06",
+      "url": "https://re-nj.com/?p=34892"
+    },
+    {
+      "id": "renj-2023-12",
+      "title": "JLL: Woodmont refis after leasing up 443-unit West Windsor rental property",
+      "publisher": "Real Estate NJ",
+      "date": "2023-12-12",
+      "url": "https://re-nj.com/?p=50265"
+    },
+    {
+      "id": "jll-2023-12",
+      "title": "Permanent financing secured for luxury New Jersey multi-housing community",
+      "publisher": "JLL newsroom",
+      "date": "2023-12-12",
+      "url": "https://www.jll.com/en-us/newsroom/financing-secured-for-new-jersey-multihousing-community4"
+    },
+    {
+      "id": "planetprinceton-2021",
+      "title": "New apartment complex behind MarketFair set to open in West Windsor this summer",
+      "publisher": "Planet Princeton",
+      "date": "2021-03-23",
+      "url": "https://planetprinceton.com/?p=89085"
+    },
+    {
+      "id": "communitynews-2018",
+      "title": "West Windsor planning board approves 443-unit Woodstone apartment complex",
+      "publisher": "Community News",
+      "date": "2018-06-27",
+      "url": "https://communitynews.org/?p=316036"
+    },
+    {
+      "id": "mhn-2020",
+      "title": "Woodmont Properties Begins Construction in New Jersey",
+      "publisher": "Multi-Housing News",
+      "date": "2020-06-17",
+      "url": "https://www.multihousingnews.com/woodmont-properties-begins-construction-in-new-jersey/"
+    },
+    {
+      "id": "osm",
+      "title": "OpenStreetMap ways (listed in osm-extract.json), extracted 2026-10-11",
+      "publisher": "OpenStreetMap contributors (ODbL 1.0)",
+      "date": "2026-10-11",
+      "url": "https://www.openstreetmap.org/way/1518661329"
+    }
+  ],
+  "images": [
+    {
+      "url": "https://planetprinceton.com/wp-content/uploads/2021/03/Aerial_Angle_Post-700x346.jpg",
+      "caption": "A rendering of the aerial view at Woodmont Way in West Windsor (Planet Princeton, 2021-03-23)",
+      "credit": "Woodmont Properties"
+    },
+    {
+      "url": "https://planetprinceton.com/wp-content/uploads/2021/03/2944_Woodmont_Site_Final_0013-700x346.jpg",
+      "caption": "A rendering of the entrance to Woodmont Way in West Windsor (Planet Princeton, 2021-03-23)",
+      "credit": "Woodmont Properties"
+    },
+    {
+      "url": "https://re-nj.com/wp-content/uploads/2021/10/Pool-View.jpg",
+      "caption": "Pool view; article credit line: \"Woodmont Way at 100 Woodmont Circle in West Windsor — All photos courtesy: Woodmont Properties\" (Real Estate NJ, 2021-10-06)",
+      "credit": "Woodmont Properties"
+    },
+    {
+      "url": "https://re-nj.com/wp-content/uploads/2023/06/Woodmont-Way.jpeg",
+      "caption": "Photo of the Woodmont Way entrance sign with a residential building behind it (description by this portfolio; image hosted by Real Estate NJ, June 2023)",
+      "credit": "Woodmont Properties / Real Estate NJ"
+    }
+  ],
+  "facts": {
+    "units": {
+      "label": "Apartment units",
+      "value": 443,
+      "unit": "units",
+      "sources": [
+        "renj-2021-03",
+        "jll-2023-12"
+      ],
+      "quote": "\"a new 443-unit luxury apartment complex in West Windsor\" (Real Estate NJ); \"443-unit, garden-style, luxury multi-housing community\" (JLL)"
+    },
+    "buildingCount": {
+      "label": "Buildings in the development",
+      "value": 13,
+      "unit": "buildings",
+      "sources": [
+        "jll-2023-12",
+        "renj-2023-12"
+      ],
+      "quote": "\"13-building Woodmont Way at West Windsor\" (JLL)"
+    },
+    "residentialBuildingCount": {
+      "label": "Residential buildings",
+      "value": 12,
+      "unit": "buildings",
+      "sources": [
+        "osm",
+        "jll-2023-12"
+      ],
+      "derivation": "OpenStreetMap maps 12 apartment buildings plus the clubhouse on the site; 12 + 1 matches JLL's 13 buildings. Garages and the maintenance building are read as accessory structures outside that count."
+    },
+    "footprints": {
+      "label": "Building footprints",
+      "value": "OpenStreetMap building outlines, 16 ways",
+      "sources": [
+        "osm"
+      ],
+      "derivation": "Each building's polygon is the OSM way in osm-extract.json, converted to metres. They line up closely with Esri World Imagery on a visual overlay; they are traced outlines, not surveyed, and may include roof overhangs."
+    },
+    "siteAcres": {
+      "label": "Site area (approved plan)",
+      "value": 23,
+      "unit": "acres",
+      "sources": [
+        "communitynews-2018"
+      ],
+      "quote": "\"The 23-acre plot along Canal Pointe Boulevard\""
+    },
+    "yearBuilt": {
+      "label": "Year built",
+      "value": 2022,
+      "sources": [
+        "jll-2023-12",
+        "renj-2023-12"
+      ],
+      "quote": "\"Constructed in 2022\" (JLL)"
+    },
+    "garden": {
+      "label": "Building type",
+      "value": "garden-style",
+      "sources": [
+        "jll-2023-12"
+      ],
+      "quote": "\"443-unit, garden-style, luxury multi-housing community\""
+    },
+    "patioOrBalcony": {
+      "label": "Private outdoor space",
+      "value": "every home has a private patio or balcony",
+      "sources": [
+        "renj-2021-03",
+        "renj-2021-10",
+        "planetprinceton-2021"
+      ],
+      "quote": "\"all homes offering a private patio or balcony\" (Real Estate NJ, March 2021)"
+    },
+    "ceilingHeight": {
+      "label": "Apartment ceiling height",
+      "value": 9,
+      "unit": "ft",
+      "sources": [
+        "mhn-2020"
+      ],
+      "quote": "\"plank floors, 9-foot ceilings, walk-in closets, gourmet kitchens\""
+    },
+    "clubhouseStories": {
+      "label": "Clubhouse stories",
+      "value": 2,
+      "unit": "stories",
+      "sources": [
+        "jll-2023-12",
+        "renj-2023-12"
+      ],
+      "quote": "\"Community amenities include a two-story clubhouse, a swimming pool and sundeck\" (JLL)"
+    },
+    "pool": {
+      "label": "Pool and cabana",
+      "value": "resort-style swimming pool and cabana",
+      "sources": [
+        "renj-2021-10",
+        "osm"
+      ],
+      "quote": "\"resort-style swimming pool and cabana\" (Real Estate NJ, October 2021); pool outline is OSM way 1375161104 (leisure=swimming_pool)"
+    },
+    "garages": {
+      "label": "Detached garages",
+      "value": "detached garages and storage units for rent",
+      "sources": [
+        "mhn-2020",
+        "osm"
+      ],
+      "quote": "\"The property will have detached garages and storage units available for rent.\" (Multi-Housing News); OSM maps two detached garage buildings (ways 1518661325, 1518661331)"
+    },
+    "location": {
+      "label": "Location",
+      "value": "off Meadow Road, just west of Route 1, along Canal Pointe Boulevard",
+      "sources": [
+        "renj-2021-10",
+        "communitynews-2018"
+      ],
+      "quote": "\"located off Meadow Road and just west of Route 1\" (Real Estate NJ); \"The 23-acre plot along Canal Pointe Boulevard\" (Community News)"
+    },
+    "residentialStories": {
+      "label": "Residential stories",
+      "value": 4,
+      "unit": "stories",
+      "estimate": "Not published. The pool-view photo and the aerial rendering show four floors of windows on most buildings; the entrance rendering shows three above grade on a sloping corner. Modelled as 4 on every residential building. Density check: 4 stories over the OSM footprints gives about 1,820 gross SF per unit, high for garden apartments, so some buildings may be 3 stories (or the OSM outlines include overhangs). This is the largest uncertainty in the scene; a per-building correction goes in storiesByWay in woodmont-way/build.ts."
+    },
+    "floorToFloor": {
+      "label": "Floor-to-floor height",
+      "value": 3.05,
+      "unit": "m",
+      "estimate": "10 ft: the published 9-ft ceilings plus about 1 ft of wood-frame floor structure."
+    },
+    "residentialRoof": {
+      "label": "Residential roof",
+      "value": "hip",
+      "estimate": "Hip roofs with dormers are visible in the renderings and photos; the pitch is not published."
+    },
+    "roofPitch": {
+      "label": "Roof pitch",
+      "value": 30,
+      "unit": "deg",
+      "estimate": "Read by eye from the entrance rendering and pool photo."
+    },
+    "roofOverhang": {
+      "label": "Eave overhang",
+      "value": 0.45,
+      "unit": "m",
+      "estimate": "Typical for this construction type; not published."
+    },
+    "exteriorWall": {
+      "label": "Exterior wall thickness",
+      "value": 0.3,
+      "unit": "m",
+      "estimate": "Wood frame with siding and brick base; not published."
+    },
+    "accessoryHeight": {
+      "label": "Garage and maintenance building height",
+      "value": 3.2,
+      "unit": "m",
+      "estimate": "One story, read from the aerial rendering."
+    },
+    "clubhouseFloorToFloor": {
+      "label": "Clubhouse floor-to-floor height",
+      "value": 3.66,
+      "unit": "m",
+      "estimate": "12 ft, typical for amenity space; not published."
+    },
+    "streetWidth": {
+      "label": "Public street paving width (Canal Pointe Blvd, Meadow Rd, Wheeler Way, Emmons Dr, Farber Rd)",
+      "value": 11,
+      "unit": "m",
+      "estimate": "Two lanes with shoulders; OSM stores centrelines only."
+    },
+    "driveAisleWidth": {
+      "label": "Internal drive aisle width",
+      "value": 7.3,
+      "unit": "m",
+      "estimate": "24 ft two-way aisle along the OSM service-road centrelines."
+    },
+    "stallDepth": {
+      "label": "Parking stall depth",
+      "value": 5.5,
+      "unit": "m",
+      "estimate": "18 ft perpendicular stall. Stall strips are placed on both sides of each aisle segment wherever they clear every building, the pool and the deck; the real striping is not published."
+    },
+    "stallWidth": {
+      "label": "Parking stall width",
+      "value": 2.74,
+      "unit": "m",
+      "estimate": "9 ft; used only to estimate the stall count from strip length."
+    },
+    "poolDeck": {
+      "label": "Pool deck width around the pool",
+      "value": 6,
+      "unit": "m",
+      "estimate": "Read by eye from the pool-view photo; not published."
+    },
+    "cabana": {
+      "label": "Cabana footprint",
+      "value": "9 x 4.5 m at the north end of the pool deck",
+      "estimate": "The pool photo shows an open pergola-style cabana at one end of the pool; size and which end are estimates."
+    },
+    "siteOutlineOffset": {
+      "label": "Site outline",
+      "value": 8,
+      "unit": "m",
+      "estimate": "No parcel geometry was reachable. The site polygon is the convex hull of the mapped buildings, pool and drives, pushed out 8 m; its area is compared with the published 23 acres in the scene summary."
+    },
+    "typicalBuilding": {
+      "label": "Typical residential building",
+      "value": "OSM way 1518661329",
+      "sources": [
+        "osm"
+      ],
+      "derivation": "One of the five simple-rectangle residential footprints (about 68.3 x 24.4 m), modelled in its own axes."
+    },
+    "unitsPerFloor": {
+      "label": "Units per floor (typical building)",
+      "value": 10,
+      "unit": "units",
+      "estimate": "443 units shared by footprint area: this footprint is 8.9% of the residential footprint area, about 39.5 units over 4 stories, so 10 per floor, 5 on each side of a central corridor (the north five between the stair halls). Unit mix and plans are not published."
+    },
+    "corridorWidth": {
+      "label": "Corridor width",
+      "value": 1.8,
+      "unit": "m",
+      "estimate": "Double-loaded corridor, typical width; not published."
+    },
+    "stairHall": {
+      "label": "Stair halls",
+      "value": 3.2,
+      "unit": "m",
+      "estimate": "Two stair halls, 3.2 m wide, at the ends of the north side, with a switchback flight per storey (Pascal's stair tool sizes the risers). Stair positions and widths are not published."
+    },
+    "balcony": {
+      "label": "Balcony size",
+      "value": "3.0 x 1.8 m, one per unit, with a 1.8 m sliding door",
+      "estimate": "Read by eye from the photos; every unit gets one to match the published 'patio or balcony' for every home (ground floor: patios)."
+    },
+    "windows": {
+      "label": "Window rhythm",
+      "value": "two 0.9 x 1.6 m double-hung windows per unit on the long facade, two more on each south end unit's gable wall, one per stair hall, 0.6 m sill",
+      "estimate": "Read by eye from the photos; the real elevations are richer (bays, paired windows, dormers)."
+    },
+    "unitMix": {
+      "label": "Approved unit mix",
+      "value": "114 one-bedroom, 290 two-bedroom, 29 three-bedroom",
+      "sources": [
+        "communitynews-2018"
+      ],
+      "quote": "\"Most of the apartments will be two-bedroom, making up 290 of the 443 units.\" ... \"There will also be 114 one-bedroom apartments\" ... \"the remaining 29 apartments will be three-bedroom\""
+    },
+    "affordableUnits": {
+      "label": "Affordable units (approved)",
+      "value": 89,
+      "unit": "units",
+      "sources": [
+        "communitynews-2018"
+      ],
+      "quote": "\"The developers have also promised to designate 89 of these units as affordable housing\""
+    },
+    "address": {
+      "label": "Address",
+      "value": "100 Woodstone Circle, West Windsor, NJ",
+      "sources": [
+        "jll-2023-12"
+      ],
+      "quote": "\"100 Woodstone Circle\" (JLL, 2023)"
+    },
+    "accessoryRoofPitch": {
+      "label": "Garage and maintenance roof pitch",
+      "value": 22,
+      "unit": "deg",
+      "estimate": "Gable roofs read from the aerial rendering; pitch by eye."
+    },
+    "accessoryOverhang": {
+      "label": "Garage and maintenance eaves",
+      "value": 0.3,
+      "unit": "m",
+      "estimate": "Not published."
+    },
+    "accessoryWall": {
+      "label": "Garage and maintenance wall thickness",
+      "value": 0.25,
+      "unit": "m",
+      "estimate": "Not published."
+    },
+    "poolDepth": {
+      "label": "Pool depth",
+      "value": 1.4,
+      "unit": "m",
+      "estimate": "Typical residential pool depth; not published."
+    },
+    "doors": {
+      "label": "Door sizes",
+      "value": "unit entry doors 0.95 m wide; building entries 1.8 x 2.3 m glass at both corridor ends; balcony doors 1.8 x 2.1 m sliding",
+      "estimate": "Typical sizes; not published."
+    },
+    "clubhouseRoof": {
+      "label": "Clubhouse roof",
+      "value": "hip, same pitch as the apartments",
+      "estimate": "The clubhouse roof in the aerial rendering is a cluster of hips and gables; one hip over its bounding rectangle stands in for it."
+    }
+  },
+  "notes": [
+    "The approved unit mix in Community News (114 + 290 + 29) sums to 433, not 443; the 443 total is repeated by every later source, so the mix is context only and is not used in the model.",
+    "Planet Princeton (March 2021) says 433 units; Real Estate NJ, Multi-Housing News and JLL all say 443. 443 is used.",
+    "The address appears as 200 Emmons Drive (Multi-Housing News, 2020), 100 Woodmont Circle (Real Estate NJ, 2021) and 100 Woodstone Circle (JLL, 2023); Woodstone was the project's approval-stage name.",
+    "Multi-Housing News (2020) said \"some units\" would have a patio or balcony; the 2021 leasing coverage says all homes do. The later, as-built wording is used.",
+    "The task brief named woodmont.com as Woodmont's site; that domain belongs to The Woodmont Company of Fort Worth, Texas. Woodmont Properties (New Jersey) is woodmontproperties.com."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "extends": "../../tooling/typescript/base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false,
+    "types": ["bun"]
+  },
+  "include": ["**/*.ts"]
+}

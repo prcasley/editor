@@ -1,0 +1,236 @@
+{
+  "name": "Alpha 78 Logistics Center",
+  "type": "Class A cross-dock logistics building (industrial)",
+  "location": "5 Edge Road, Alpha, Warren County, NJ: directly off Route 22, adjacent to I-78",
+  "summary": "A 450,457 SF cross-docked warehouse on a 33.67-acre site, developed by Woodmont Industrial Partners with Brookfield Properties: 36-foot clear, 118 dock doors, four drive-ins, a 130-foot truck court, 89 trailer and 230 car spaces.",
+  "sources": [
+    {
+      "id": "woodmont-site",
+      "title": "Woodmont Properties: Properties / Portfolio (Alpha 78 Logistics Center)",
+      "publisher": "Woodmont Properties",
+      "date": "accessed 2026-10-11",
+      "url": "https://www.woodmontproperties.com/#portfolio"
+    },
+    {
+      "id": "cbre-site",
+      "title": "Alpha 78 Logistics Center, 5 Edge Road, Alpha, NJ (leasing site)",
+      "publisher": "CBRE",
+      "date": "accessed 2026-10-11",
+      "url": "https://alpha78.cbre-properties.com"
+    },
+    {
+      "id": "roi-2024-08",
+      "title": "Woodmont, Brookfield announce plans to develop industrial site in Warren County",
+      "publisher": "ROI-NJ",
+      "date": "2024-08-14",
+      "url": "https://www.roi-nj.com/2024/08/14/real_estate_development/woodmont-brookfield-announce-plans-to-develop-industrial-site-in-warren-county/"
+    },
+    {
+      "id": "renj-2024-08",
+      "title": "Woodmont, Brookfield detail start of 450,000 sq. ft. industrial project in Warren County",
+      "publisher": "Real Estate NJ",
+      "date": "2024-08-14",
+      "url": "https://re-nj.com/?p=54970"
+    }
+  ],
+  "images": [
+    {
+      "url": "https://re-nj.com/wp-content/uploads/2024/08/EdgeRoadAlpha-2.jpg",
+      "caption": "Rendering of the Alpha 78 Logistics Center (Real Estate NJ, 2024-08-14)",
+      "credit": "Woodmont Industrial Partners"
+    }
+  ],
+  "facts": {
+    "buildingSf": {
+      "label": "Building area",
+      "value": 450457,
+      "unit": "SF",
+      "sources": [
+        "cbre-site",
+        "woodmont-site"
+      ],
+      "quote": "\"450,457 SF\" (CBRE); \"450,000 SF of warehousing and office space\" (Woodmont Properties)"
+    },
+    "siteAcres": {
+      "label": "Site area",
+      "value": 33.67,
+      "unit": "acres",
+      "sources": [
+        "roi-2024-08"
+      ],
+      "quote": "\"33.67-acre site\""
+    },
+    "clearHeight": {
+      "label": "Clear height",
+      "value": 36,
+      "unit": "ft",
+      "sources": [
+        "woodmont-site",
+        "cbre-site",
+        "roi-2024-08"
+      ],
+      "quote": "\"a 36-foot clear height, an ESFR sprinkler system, a 130-foot truck court\" (Woodmont Properties)"
+    },
+    "crossDock": {
+      "label": "Loading configuration",
+      "value": "cross-dock (docks on both long sides)",
+      "sources": [
+        "renj-2024-08"
+      ],
+      "quote": "\"the cross-docked facility\""
+    },
+    "docks": {
+      "label": "Dock doors",
+      "value": 118,
+      "unit": "doors",
+      "sources": [
+        "cbre-site",
+        "roi-2024-08",
+        "renj-2024-08"
+      ],
+      "quote": "\"118 DOCK DOORS\" (CBRE); \"118 dock doors with four drive-ins\" (Real Estate NJ)"
+    },
+    "driveIns": {
+      "label": "Drive-in doors",
+      "value": 4,
+      "unit": "doors",
+      "sources": [
+        "cbre-site",
+        "roi-2024-08"
+      ],
+      "quote": "\"4 DRIVE-IN DOORS\" (CBRE)"
+    },
+    "truckCourtFt": {
+      "label": "Truck court depth",
+      "value": 130,
+      "unit": "ft",
+      "sources": [
+        "woodmont-site"
+      ],
+      "quote": "\"a 130-foot truck court\""
+    },
+    "trailerStalls": {
+      "label": "Trailer parking",
+      "value": 89,
+      "unit": "spaces",
+      "sources": [
+        "roi-2024-08",
+        "renj-2024-08"
+      ],
+      "quote": "\"89 truck/trailer parking spots\" (ROI-NJ); \"parking for 89 trucks or trailers and 230 cars\" (Real Estate NJ)"
+    },
+    "carStalls": {
+      "label": "Car parking",
+      "value": 230,
+      "unit": "spaces",
+      "sources": [
+        "cbre-site",
+        "roi-2024-08"
+      ],
+      "quote": "\"230 AUTO PARKING\" (CBRE); \"230 spaces for cars\" (ROI-NJ)"
+    },
+    "officeSf": {
+      "label": "Spec office",
+      "value": 3000,
+      "unit": "SF",
+      "sources": [
+        "cbre-site"
+      ],
+      "quote": "\"SPEC OFFICE\" \"3,000 SF\""
+    },
+    "esfr": {
+      "label": "Sprinklers",
+      "value": "ESFR",
+      "sources": [
+        "woodmont-site"
+      ],
+      "quote": "\"an ESFR sprinkler system\""
+    },
+    "location": {
+      "label": "Location",
+      "value": "5 Edge Road, Alpha NJ; off Route 22, adjacent to I-78",
+      "sources": [
+        "cbre-site",
+        "roi-2024-08",
+        "woodmont-site"
+      ],
+      "quote": "\"5 EDGE ROAD, ALPHA, NJ\" (CBRE); \"located directly off Route 22 and I-78\" (Woodmont Properties)"
+    },
+    "buildingDepthFt": {
+      "label": "Building depth",
+      "value": 400,
+      "unit": "ft",
+      "estimate": "Not published. 400 ft is within the usual 360-420 ft range for a cross-dock building of this size."
+    },
+    "buildingLengthFt": {
+      "label": "Building length",
+      "value": 1126,
+      "unit": "ft",
+      "estimate": "450,457 SF / the estimated 400 ft depth = 1,126 ft; it moves with the depth estimate."
+    },
+    "eaveHeight": {
+      "label": "Wall height above the warehouse floor",
+      "value": 12.5,
+      "unit": "m",
+      "estimate": "41 ft: the published 36 ft clear plus about 5 ft of roof structure."
+    },
+    "dockHigh": {
+      "label": "Dock-high floor above the truck courts",
+      "value": 1.22,
+      "unit": "m",
+      "estimate": "48 in, the usual dock height; ramps to the drive-in doors are not modelled."
+    },
+    "dockSplit": {
+      "label": "Docks and drive-ins per side",
+      "value": "59 docks and 2 drive-ins on each long side",
+      "estimate": "A cross-dock is usually symmetric; the published totals (118 and 4) are split evenly."
+    },
+    "dockDoor": {
+      "label": "Dock door size",
+      "value": "9 x 10 ft",
+      "estimate": "Common dock door size; not published."
+    },
+    "driveInDoor": {
+      "label": "Drive-in door size",
+      "value": "12 x 14 ft",
+      "estimate": "Common drive-in size; not published."
+    },
+    "dockSpacingFt": {
+      "label": "Dock door spacing",
+      "value": 14,
+      "unit": "ft",
+      "estimate": "Centre-to-centre; each side's run is centred on its wall."
+    },
+    "trailerStall": {
+      "label": "Trailer stall size",
+      "value": "12 x 55 ft",
+      "estimate": "Typical; the 89 stalls are split 45 / 44 in one row past each truck court."
+    },
+    "carModule": {
+      "label": "Car parking layout",
+      "value": "9 x 18 ft stalls on 24 ft aisles, split between the two short ends",
+      "estimate": "Position and layout are estimates; the count is published."
+    },
+    "officeLocation": {
+      "label": "Office position",
+      "value": "middle of the plan-west end wall, one story",
+      "estimate": "Not published; drawn as a one-story room about 1.6:1 in plan, in the middle of the west end wall, so both dock walls stay clear."
+    },
+    "siteShape": {
+      "label": "Site outline",
+      "value": "rectangle of the published 33.67 acres, the building centred",
+      "estimate": "No parcel geometry or aerial image was reachable from the build environment, so the outline, the building's position on it and its orientation are schematic. The rectangle leaves at least 30 m around the modelled layout (building, courts, trailer rows, car fields); areas and counts are the published ones."
+    },
+    "wallThickness": {
+      "label": "Exterior wall thickness",
+      "value": 0.3,
+      "unit": "m",
+      "estimate": "Tilt-up concrete panels are typically 9-12 in; not published."
+    }
+  },
+  "notes": [
+    "ROI-NJ and Real Estate NJ (August 2024, at announcement) gave 6,000 SF of office; the current CBRE leasing site lists a 3,000 SF spec office. The leasing site is used.",
+    "ROI-NJ said completion was expected in the third quarter of 2025; Woodmont's site says the building \"is available for immediate occupancy.\"",
+    "Woodmont's site rounds the building to 450,000 SF; CBRE gives 450,457 SF, which is used."
+  ]
+}
