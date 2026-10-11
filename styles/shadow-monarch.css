@@ -9,7 +9,9 @@
  *   @import "../../../styles/shadow-monarch.css";
  */
 
-.dark[data-scene-theme="shadow-monarch"] {
+/* The layout re-declares `.dark` on nested roots, so match those too. */
+[data-scene-theme="shadow-monarch"].dark,
+[data-scene-theme="shadow-monarch"] .dark {
   --background: #0b0614;
   --foreground: #f7f5fb;
   --card: #0f0a1c;
@@ -50,13 +52,13 @@
 }
 
 @layer base {
-  .dark[data-scene-theme="shadow-monarch"] ::selection {
+  [data-scene-theme="shadow-monarch"] ::selection {
     background-color: rgb(124 58 237 / 0.55);
     color: #ffffff;
   }
 
   /* Focus glows rather than rings; utility ring classes still win. */
-  .dark[data-scene-theme="shadow-monarch"] :focus-visible {
+  [data-scene-theme="shadow-monarch"] :focus-visible {
     outline-color: transparent;
     box-shadow: var(--sm-glow);
   }

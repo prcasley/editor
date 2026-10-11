@@ -245,17 +245,19 @@ export const SCENE_THEMES: SceneTheme[] = [
     background: '#140b24',
     backgroundSky: '#05030a',
     ground: '#2a1f42',
-    ambient: { color: '#c4b5fd', intensity: 0.3 },
-    hemi: { sky: '#7c5cc4', ground: '#140b24', intensity: 0.6 },
+    ambient: { color: '#e4defa', intensity: 0.3 },
+    hemi: { sky: '#8c82b4', ground: '#140b24', intensity: 0.55 },
     lights: [
-      { position: [10, 14, 10], color: '#f1eaff', intensity: 1.5, castShadow: true },
-      { position: [-12, 8, -10], color: '#a855f7', intensity: 0.8 },
+      { position: [10, 14, 10], color: '#f6f2ff', intensity: 1.6, castShadow: true },
+      // Violet rim from behind: the "lightning" catches edges, not faces.
+      { position: [-12, 8, -10], color: '#a855f7', intensity: 0.7 },
     ],
     toneMappingExposure: 0.9,
+    // Near-neutral surfaces so the violet selection and grid stay the accent.
     clayTints: {
-      wall: '#c9c3d6',
-      floor: '#8e85a8',
-      ceiling: '#d4cee0',
+      wall: '#d7d5de',
+      floor: '#77738a',
+      ceiling: '#e2e0e8',
       roof: '#3d2b63',
       glazing: '#b9a3e6',
     },
