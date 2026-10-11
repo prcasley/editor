@@ -11,7 +11,8 @@ Per case, into <out>/<case_id>/:
   layout.json          rotation / translation / scale as predicted, when present
   output-keys.json     every key of the output dict with its type and shape, so the first
                        real run documents what the pipeline returns
-  reconstruction.json  status, timing, GPU, versions; on failure the error, and no PLYs
+  reconstruction.json  status, timing, GPU, versions, whether a pointmap was passed;
+                       on failure the error, and no PLYs
 """
 
 from __future__ import annotations
@@ -88,6 +89,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--only", nargs="*", help="case ids to run (default: all)")
     ap.add_argument("--sam3d-root", type=Path, default=Path(os.environ.get("SAM3D_ROOT", "/opt/sam-3d-objects")))
     ap.add_argument("--config", type=Path, help="pipeline.yaml (default: <sam3d-root>/checkpoints/hf/pipeline.yaml)")
+    ap.add_argument("--pointmap-name",
+                    help="if a case folder holds this .npy (H x W x 3, metric, e.g. from MoGe-2), pass it as "
+                         "Inference(pointmap=...); the layout SAM 3D expects is unconfirmed")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--timeout", type=int, default=900, help="seconds per case")
     ap.add_argument("--overwrite", action="store_true", help="re-run cases that already have splat.ply")
@@ -156,7 +160,14 @@ def main(argv: list[str] | None = None) -> int:
                 raise ValueError(f"image {image.shape[:2]} and mask {mask.shape} differ")
             if not mask.any():
                 raise ValueError("mask is empty")
-            output = model(image, mask, seed=args.seed)
+            pointmap = None
+            if args.pointmap_name and (case.root / args.pointmap_name).is_file():
+                pm = np.load(case.root / args.pointmap_name).astype(np.float32)
+                if pm.shape != (*mask.shape, 3):
+                    raise ValueError(f"pointmap {pm.shape} does not match image {mask.shape} x 3")
+                pointmap = torch.from_numpy(pm).cuda()
+            record["pointmap"] = args.pointmap_name if pointmap is not None else None
+            output = model(image, mask, seed=args.seed, pointmap=pointmap)
             (out / "output-keys.json").write_text(
                 json.dumps({k: describe(v) for k, v in output.items()}, indent=2) + "\n")
             output["gs"].save_ply(str(out / "splat.ply"))
