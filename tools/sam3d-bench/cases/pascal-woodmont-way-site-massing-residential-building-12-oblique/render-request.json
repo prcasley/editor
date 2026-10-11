@@ -1,0 +1,8 @@
+{
+  "renderer": "Pascal headless harness (render.mjs: Playwright + SwiftShader WebGL)",
+  "query": "scene=/@fs/home/claude/editor-portfolio/examples/woodmont-portfolio/woodmont-way/site-massing.json&cam=172.275,54.347,-52.672&target=77.032,10.217,-106.141&fov=40",
+  "width": 1024,
+  "height": 768,
+  "out": "image.png",
+  "camera_note": "three.js PerspectiveCamera, vertical fov, lookAt(target), up +Y; ground-truth.json camera is the same camera in OpenCV form"
+}

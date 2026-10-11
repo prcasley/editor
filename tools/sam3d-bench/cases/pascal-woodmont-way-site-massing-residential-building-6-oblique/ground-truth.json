@@ -1,0 +1,138 @@
+{
+  "schema": "sam3d-bench/case@1",
+  "case_id": "pascal-woodmont-way-site-massing-residential-building-6-oblique",
+  "source": {
+    "kind": "pascal-scene",
+    "scene_sha256": "634d39106e6e7eddf341654c531d300997ce805c274ee53f2fd2257649973de2",
+    "scene_path": "examples/woodmont-portfolio/woodmont-way/site-massing.json",
+    "scene_commit": "77f9387df95da85fe201cda3a81b2baa6a2c8d79",
+    "node_id": "building_ww_1011222123",
+    "node_name": "Residential building 6",
+    "osm_refs": [
+      "way/1011222123"
+    ],
+    "license": "Pascal scene authored by us; rendered image and dimensions are ours; footprint derived from OpenStreetMap (ODbL 1.0, (c) OpenStreetMap contributors)",
+    "view": "oblique"
+  },
+  "files": {
+    "image": "image.png",
+    "mask": "mask.png",
+    "gt_mesh": "gt-mesh.obj"
+  },
+  "object": {
+    "frame": "metres; origin at bbox centre; +Y up; +X long horizontal side; +Z short side",
+    "dimensions_m": {
+      "width": 55.1,
+      "height": 20.52320721750873,
+      "depth": 27.23
+    },
+    "world_from_object": [
+      [
+        -0.676688,
+        0.0,
+        -0.73627,
+        -66.089
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        10.261604
+      ],
+      [
+        0.73627,
+        0.0,
+        -0.676688,
+        40.952
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "measurements": [
+      {
+        "name": "storey_height",
+        "value_m": 3.05,
+        "axis": null,
+        "count": 4,
+        "derivation": "level.height of 4 storeys (floor to floor)"
+      },
+      {
+        "name": "wall_top_height",
+        "value_m": 12.2,
+        "axis": null,
+        "derivation": "sum of storey heights: plane-bound walls reach the storey top"
+      },
+      {
+        "name": "footprint_length",
+        "value_m": 54.28802850872899,
+        "axis": null,
+        "derivation": "ground storey wall outer faces, long side"
+      },
+      {
+        "name": "footprint_width",
+        "value_m": 26.420219825884995,
+        "axis": null,
+        "derivation": "ground storey wall outer faces, short side"
+      },
+      {
+        "name": "eave_wall_top_height",
+        "value_m": 12.549999999999999,
+        "axis": null,
+        "derivation": "roof base + roof wallHeight"
+      }
+    ],
+    "notes": [
+      "hip roof: width 54.890, depth 27.020, pitch 30 deg -> rise 7.800 m; peak = wallHeight 0.35 + rise + deck 0.1/cos + shingle 0.05/cos",
+      "width 55.100 m is the bounding box of the massing in building axes",
+      "height 20.523 m is the bounding box of the massing in building axes",
+      "depth 27.230 m is the bounding box of the massing in building axes"
+    ]
+  },
+  "camera": {
+    "convention": "opencv",
+    "width": 1024,
+    "height": 768,
+    "fx": 1055.031329070575,
+    "fy": 1055.031329070575,
+    "cx": 511.5,
+    "cy": 383.5,
+    "fov_y_deg": 40.0,
+    "world_from_camera": [
+      [
+        -0.132003,
+        -0.371329,
+        0.91907,
+        -160.114895
+      ],
+      [
+        0.0,
+        -0.927184,
+        -0.374607,
+        48.585895
+      ],
+      [
+        0.991249,
+        -0.049449,
+        0.122391,
+        28.430726
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "mask_stats": {
+    "pixels": 142867,
+    "visible_fraction": 1.0,
+    "touches_border": false,
+    "method": "z-buffer of every building's massing; roofs as solid hip/gable/flat"
+  },
+  "reference_measurement": "width"
+}

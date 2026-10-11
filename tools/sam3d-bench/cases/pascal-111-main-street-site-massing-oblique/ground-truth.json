@@ -1,0 +1,164 @@
+{
+  "schema": "sam3d-bench/case@1",
+  "case_id": "pascal-111-main-street-site-massing-oblique",
+  "source": {
+    "kind": "pascal-scene",
+    "scene_sha256": "2278162ac0c09bb575ae3199d6e796eb439d2c2b41ef36ef95f4349ef5dbb0b1",
+    "scene_path": "examples/woodmont-portfolio/111-main-street/site-massing.json",
+    "scene_commit": "77f9387df95da85fe201cda3a81b2baa6a2c8d79",
+    "node_id": "building_warehouse",
+    "node_name": "111 Main Street warehouse",
+    "osm_refs": [],
+    "license": "Pascal scene authored by us; rendered image and dimensions are ours",
+    "view": "oblique"
+  },
+  "files": {
+    "image": "image.png",
+    "mask": "mask.png",
+    "gt_mesh": "gt-mesh.obj"
+  },
+  "object": {
+    "frame": "metres; origin at bbox centre; +Y up; +X long horizontal side; +Z short side",
+    "dimensions_m": {
+      "width": 238.044,
+      "height": 13.0,
+      "depth": 59.73600000000001
+    },
+    "world_from_object": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        7.72
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "measurements": [
+      {
+        "name": "storey_height",
+        "value_m": 12.5,
+        "axis": null,
+        "count": 1,
+        "derivation": "level.height of 1 storeys (floor to floor)"
+      },
+      {
+        "name": "wall_top_height",
+        "value_m": 12.5,
+        "axis": null,
+        "derivation": "sum of storey heights: plane-bound walls reach the storey top"
+      },
+      {
+        "name": "footprint_length",
+        "value_m": 238.044,
+        "axis": null,
+        "derivation": "ground storey wall outer faces, long side"
+      },
+      {
+        "name": "footprint_width",
+        "value_m": 59.73600000000001,
+        "axis": null,
+        "derivation": "ground storey wall outer faces, short side"
+      },
+      {
+        "name": "eave_wall_top_height",
+        "value_m": 12.85,
+        "axis": null,
+        "derivation": "roof base + roof wallHeight"
+      },
+      {
+        "name": "exterior_door_2.74x3.05_width",
+        "value_m": 2.743,
+        "axis": null,
+        "count": 25,
+        "derivation": "door node width on 25 exterior wall openings"
+      },
+      {
+        "name": "exterior_door_2.74x3.05_height",
+        "value_m": 3.048,
+        "axis": null,
+        "count": 25,
+        "derivation": "door node height on 25 exterior wall openings"
+      },
+      {
+        "name": "exterior_door_3.66x4.27_width",
+        "value_m": 3.658,
+        "axis": null,
+        "count": 2,
+        "derivation": "door node width on 2 exterior wall openings"
+      },
+      {
+        "name": "exterior_door_3.66x4.27_height",
+        "value_m": 4.267,
+        "axis": null,
+        "count": 2,
+        "derivation": "door node height on 2 exterior wall openings"
+      }
+    ],
+    "notes": [
+      "flat roof: width 237.744, depth 59.436, pitch 35 deg -> rise 0.000 m; peak = wallHeight 0.35 + rise + deck 0.1/cos + shingle 0.05/cos",
+      "width 238.044 m is the bounding box of the massing in building axes",
+      "height 13.000 m is the bounding box of the massing in building axes",
+      "depth 59.736 m is the bounding box of the massing in building axes"
+    ]
+  },
+  "camera": {
+    "convention": "opencv",
+    "width": 1024,
+    "height": 768,
+    "fx": 1055.031329070575,
+    "fy": 1055.031329070575,
+    "cx": 511.5,
+    "cy": 383.5,
+    "fov_y_deg": 40.0,
+    "world_from_camera": [
+      [
+        0.819152,
+        0.214866,
+        -0.531811,
+        206.360277
+      ],
+      [
+        0.0,
+        -0.927184,
+        -0.374607,
+        153.079814
+      ],
+      [
+        -0.573576,
+        0.30686,
+        -0.759505,
+        294.713019
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "mask_stats": {
+    "pixels": 62857,
+    "visible_fraction": 1.0,
+    "touches_border": false,
+    "method": "z-buffer of every building's massing; roofs as solid hip/gable/flat"
+  },
+  "reference_measurement": "width"
+}
