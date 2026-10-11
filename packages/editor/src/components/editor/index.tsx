@@ -115,6 +115,7 @@ import { NodeArrowHandles } from './node-arrow-handles'
 import { QuickMeasurementHud } from './quick-measurement-hud'
 import { RiserDiagramPanel } from './riser-diagram-panel'
 import { RoomLabels3D } from './room-labels'
+import { SaveBolt } from './save-bolt'
 import { SelectionManager } from './selection-manager'
 import { SiteEdgeLabels } from './site-edge-labels'
 import { SlabHoleHighlights } from './slab-hole-highlights'
@@ -1420,16 +1421,32 @@ function EditorContent({
   useKeyboard({ isVersionPreviewMode, disabled: isFirstPersonMode || isStudioMode })
   useGestureLifecycleOwner()
 
+  // Only a save the user asked for strikes the save bolt: autosaves land every
+  // few seconds while editing and must stay silent.
+  const explicitSavePendingRef = useRef(false)
+  const [saveStrike, setSaveStrike] = useState(0)
+  const handleSaveStatusChange = useCallback(
+    (status: SaveStatus) => {
+      if (explicitSavePendingRef.current && status !== 'saving' && status !== 'pending') {
+        explicitSavePendingRef.current = false
+        if (status === 'saved') setSaveStrike((strike) => strike + 1)
+      }
+      onSaveStatusChange?.(status)
+    },
+    [onSaveStatusChange],
+  )
+
   const { beginSceneLoad, completeSceneLoad, saveNow } = useAutoSave({
     guardAgainstSceneWipe,
     onSave,
     onDirty,
-    onSaveStatusChange,
+    onSaveStatusChange: handleSaveStatusChange,
     isVersionPreviewMode,
   })
 
   const handleSaveShortcut = useCallback(() => {
     if (onSaveShortcut?.() === true) return
+    explicitSavePendingRef.current = true
     saveNow()
   }, [onSaveShortcut, saveNow])
   useSaveShortcut(handleSaveShortcut)
@@ -1566,6 +1583,17 @@ function EditorContent({
       document.body.classList.remove('dark')
     }
   }, [])
+
+  // Exposes the scene theme to the host's stylesheet so a theme can restyle
+  // the chrome too (see styles/shadow-monarch.css); hosts without such a
+  // stylesheet keep the stock dark chrome.
+  const sceneTheme = useViewer((state) => state.sceneTheme)
+  useEffect(() => {
+    document.body.dataset.sceneTheme = sceneTheme
+    return () => {
+      delete document.body.dataset.sceneTheme
+    }
+  }, [sceneTheme])
 
   const handleSceneReadyChange = useCallback((ready: boolean) => {
     setIsViewerSceneReady(ready)
@@ -1736,6 +1764,7 @@ function EditorContent({
     return (
       <>
         <FloorplanModeCoordinator />
+        <SaveBolt strike={saveStrike} />
         {visibleLoader && (
           <div className="fixed inset-0 z-60">
             {sceneLoadError ? (
@@ -1820,6 +1849,7 @@ function EditorContent({
   return (
     <div className="dark flex h-full w-full gap-3 bg-neutral-100 p-3 text-foreground">
       <FloorplanModeCoordinator />
+      <SaveBolt strike={saveStrike} />
       {visibleLoader && (
         <div className="fixed inset-0 z-60">
           {sceneLoadError ? (

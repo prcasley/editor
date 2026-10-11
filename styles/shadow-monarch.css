@@ -1,0 +1,63 @@
+/*
+ * Shadow Monarch chrome
+ *
+ * Purple lightning on black for the editor UI, applied when the
+ * "Shadow Monarch" scene theme is active (the editor mirrors the theme id
+ * onto <body data-scene-theme>). Colour goes on surfaces, borders, focus and
+ * selection; text stays white so long copy reads cleanly.
+ * Import from any app after its token definitions:
+ *   @import "../../../styles/shadow-monarch.css";
+ */
+
+.dark[data-scene-theme="shadow-monarch"] {
+  --background: #0b0614;
+  --foreground: #f7f5fb;
+  --card: #0f0a1c;
+  --card-foreground: #f7f5fb;
+  --popover: #110b20;
+  --popover-foreground: #f7f5fb;
+  /* Between the two brand violets: white labels on it and violet accents on
+     the near-black both clear 4.2:1. */
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
+  --secondary: #1a1130;
+  --secondary-foreground: #f7f5fb;
+  --muted: #1a1130;
+  --muted-foreground: #c2bfcc;
+  --accent: #1d1335;
+  --accent-foreground: #ffffff;
+  --border: rgb(168 85 247 / 16%);
+  --input: rgb(168 85 247 / 24%);
+  --ring: #a855f7;
+  --sidebar: #0b0614;
+  --sidebar-foreground: #f7f5fb;
+  --sidebar-primary: #a855f7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1d1335;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgb(168 85 247 / 16%);
+  --sidebar-ring: #a855f7;
+
+  /* Elevation: raised surfaces catch a violet rim instead of a white one. */
+  --shadow-color: rgb(0 0 0 / 0.4);
+  --dm-ring-base: rgb(168 85 247 / 0.07);
+  --dm-ring-mid: rgb(168 85 247 / 0.11);
+  --dm-ring-high: rgb(168 85 247 / 0.16);
+
+  --sm-glow: 0 0 0 1px #a855f7, 0 0 14px -2px rgb(168 85 247 / 0.6);
+
+  scrollbar-color: #3b2566 transparent;
+}
+
+@layer base {
+  .dark[data-scene-theme="shadow-monarch"] ::selection {
+    background-color: rgb(124 58 237 / 0.55);
+    color: #ffffff;
+  }
+
+  /* Focus glows rather than rings; utility ring classes still win. */
+  .dark[data-scene-theme="shadow-monarch"] :focus-visible {
+    outline-color: transparent;
+    box-shadow: var(--sm-glow);
+  }
+}

@@ -181,8 +181,9 @@ A `SceneTheme` (`lib/scene-themes.ts`) bundles everything that defines a "look":
 | `lights` / `ambient` / `hemi` | The light rig (`lights.tsx`). One key light casts shadows. |
 | `toneMappingExposure` | Renderer exposure. |
 | `clayTints?` | Per-`SurfaceRole` colour overrides layered on top of `colorPreset` (see [resolving a colour](#resolving-a-colour)). |
+| `highlight?` | An accent for themes that have one: selection outline, the `default` hover outline (mode hovers such as delete and paint keep their colours), occluded outline edges, and the editor grid in 3D and in the 2D plan. Omitted → stock white/blue/yellow outlines and the `appearance` grid. |
 
-The editor UI chrome is always dark (a fixed `document.body.classList.add('dark')`) and is independent of `appearance`.
+The editor UI chrome is always dark (a fixed `document.body.classList.add('dark')`) and is independent of `appearance`. The editor also mirrors the active theme id onto `<body data-scene-theme>`, so a host stylesheet can restyle the chrome for one theme: `styles/shadow-monarch.css` does this for Shadow Monarch by overriding the `.dark` tokens. A host that does not import it keeps the stock chrome with the themed canvas. A theme with a `highlight` also gets the editor's save bolt, a short strike along the top edge after a Cmd/Ctrl+S save (never on autosave, never with reduced motion).
 
 ## Adding a theme
 
