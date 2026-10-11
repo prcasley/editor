@@ -115,6 +115,12 @@ ran on its WebGL2 fallback backend; some material textures were not available of
 and fell back to flat colours. The renders show the scene files exactly as built; they
 are not retouched.
 
+Renders present: `woodmont-way/renders/site-massing-aerial.png`,
+`woodmont-way/renders/typical-building-north.png`,
+`111-main-street/renders/site-massing-aerial.png`, `alpha-78/renders/site-massing-aerial.png`.
+A plan view of the Woodmont Way site and a south view of the typical building were
+attempted but the headless renderer crashed before writing them; they are not included.
+
 ## Sources and rights
 
 Public sources only: woodmontproperties.com, the properties' leasing sites (CBRE,
