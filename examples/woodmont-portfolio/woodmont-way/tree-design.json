@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "name": "Shade tree",
+  "description": "Deciduous street tree: a trunk under a main canopy and an offset lobe. Species and sizes on site are not published; this stands in for the planted trees seen in the renderings.",
+  "classification": { "category": "plant", "functionTags": ["tree"], "tags": ["outdoor", "landscape"] },
+  "parameters": [
+    { "id": "height", "label": "Height", "default": 9, "min": 4, "max": 16, "step": 0.5, "unit": "m", "axis": "y" },
+    { "id": "spread", "label": "Canopy spread", "default": 6, "min": 2, "max": 12, "step": 0.5, "unit": "m" }
+  ],
+  "slots": [
+    { "id": "bark", "label": "Bark", "color": "#5b4733" },
+    { "id": "leaves", "label": "Leaves", "color": "#4f6f37" }
+  ],
+  "parts": [
+    {
+      "id": "trunk",
+      "label": "Trunk",
+      "count": 1,
+      "shapes": [
+        {
+          "id": "stem",
+          "primitive": "cylinder",
+          "slot": "bark",
+          "size": [0.35, { "op": "mul", "args": ["height", 0.45] }, 0.35],
+          "position": [0, { "op": "mul", "args": ["height", 0.225] }, 0]
+        }
+      ]
+    },
+    {
+      "id": "canopy",
+      "label": "Canopy",
+      "count": 1,
+      "shapes": [
+        {
+          "id": "crown",
+          "primitive": "ellipsoid",
+          "slot": "leaves",
+          "size": ["spread", { "op": "mul", "args": ["height", 0.62] }, "spread"],
+          "position": [0, { "op": "mul", "args": ["height", 0.66] }, 0]
+        },
+        {
+          "id": "lobe_a",
+          "primitive": "ellipsoid",
+          "slot": "leaves",
+          "size": [
+            { "op": "mul", "args": ["spread", 0.7] },
+            { "op": "mul", "args": ["height", 0.4] },
+            { "op": "mul", "args": ["spread", 0.7] }
+          ],
+          "position": [
+            { "op": "mul", "args": ["spread", 0.16] },
+            { "op": "mul", "args": ["height", 0.52] },
+            { "op": "mul", "args": ["spread", -0.1] }
+          ]
+        },
+        {
+          "id": "lobe_b",
+          "primitive": "ellipsoid",
+          "slot": "leaves",
+          "size": [
+            { "op": "mul", "args": ["spread", 0.6] },
+            { "op": "mul", "args": ["height", 0.36] },
+            { "op": "mul", "args": ["spread", 0.6] }
+          ],
+          "position": [
+            { "op": "mul", "args": ["spread", -0.16] },
+            { "op": "mul", "args": ["height", 0.55] },
+            { "op": "mul", "args": ["spread", 0.1] }
+          ]
+        }
+      ]
+    }
+  ],
+  "constraints": []
+}

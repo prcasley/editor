@@ -59,6 +59,20 @@
       "publisher": "OpenStreetMap contributors (ODbL 1.0)",
       "date": "2026-10-11",
       "url": "https://www.openstreetmap.org/way/1518661329"
+    },
+    {
+      "id": "roinj-2023-06",
+      "title": "Woodmont celebrates leasing goal at West Windsor luxury apartment community",
+      "publisher": "ROI-NJ",
+      "date": "2023-06-28",
+      "url": "https://www.roi-nj.com/2023/06/28/real_estate_development/woodmont-celebrates-leasing-goal-at-west-windsor-luxury-apartment-community/"
+    },
+    {
+      "id": "renj-2023-06",
+      "title": "Woodmont hails lease-up of 443-unit luxury rental property in West Windsor",
+      "publisher": "Real Estate NJ",
+      "date": "2023-06-29",
+      "url": "https://re-nj.com/woodmont-hails-lease-up-of-443-unit-luxury-rental-property-in-west-windsor/"
     }
   ],
   "images": [
@@ -386,6 +400,101 @@
       "label": "Clubhouse roof",
       "value": "hip, same pitch as the apartments",
       "estimate": "The clubhouse roof in the aerial rendering is a cluster of hips and gables; one hip over its bounding rectangle stands in for it."
+    },
+    "amenities": {
+      "label": "Outdoor amenities",
+      "value": "heated swimming pool, pickleball courts, bocce ball courts, barbecues",
+      "sources": [
+        "roinj-2023-06",
+        "renj-2023-06"
+      ],
+      "quote": "\"heated swimming pool, pickleball courts, barbecues and bocce ball courts\" (ROI-NJ, June 2023); \"a heated swimming pool and pickle ball and bocce ball courts\" (Real Estate NJ, June 2023)"
+    },
+    "barkParkAndGarages": {
+      "label": "Bark park and garages",
+      "value": "bark park; optional garages and storage units",
+      "sources": [
+        "renj-2023-06"
+      ],
+      "quote": "\"The pet-friendly community also has a bark park and an indoor pet spa\"; \"residents have optional access to garages and individual storage units\""
+    },
+    "facadeVocabulary": {
+      "label": "Facade vocabulary",
+      "value": "lap siding in white, tan, light gray and sage; red-brick ground floor on about half the buildings; white trim bands between floors; paired double-hung windows in bays; sliding doors to stacked projecting balconies with railings on white square columns (patios at grade)",
+      "estimate": "Read from the public renderings/photos (aerial and entrance renderings, pool view, entrance-sign photo; see Reference images) in an earlier session that could view them; this build environment could not download them. Modelled with Pascal library finishes: siding-lap-white / -greige / -gray / -sage, flooring-weatheredbrick on the ground-floor walls, preset-white crown bands, window frames, columns and balcony edges."
+    },
+    "brickBaseShare": {
+      "label": "Buildings with a brick ground floor",
+      "value": 2,
+      "unit": "(every 2nd building)",
+      "estimate": "Read from the public renderings/photos (aerial and entrance renderings, pool view, entrance-sign photo; see Reference images) in an earlier session that could view them; this build environment could not download them. About half the buildings show a red-brick base; which ones is not known, so every second residential building in OSM order gets one."
+    },
+    "roofPitchDetailed": {
+      "label": "Residential roof pitch (detailed scene)",
+      "value": 32,
+      "unit": "deg",
+      "estimate": "Read from the public renderings/photos (aerial and entrance renderings, pool view, entrance-sign photo; see Reference images) in an earlier session that could view them; this build environment could not download them. About 32 degrees, asphalt shingles."
+    },
+    "crossGables": {
+      "label": "Cross-gables",
+      "value": "a front-facing gable over two bays near each end of each long facade",
+      "estimate": "Read from the public renderings/photos (aerial and entrance renderings, pool view, entrance-sign photo; see Reference images) in an earlier session that could view them; this build environment could not download them. Modelled as gable roof segments joined to the main hip roof, two per long side (where the facade has 7 or more bays)."
+    },
+    "dormersPerSide": {
+      "label": "Gable dormers per long roof side",
+      "value": 2,
+      "unit": "dormers",
+      "estimate": "Read from the public renderings/photos (aerial and entrance renderings, pool view, entrance-sign photo; see Reference images) in an earlier session that could view them; this build environment could not download them. The count per roof slope is a reading by eye; modelled as two gable dormers per long side between the cross-gables, each with a two-by-two window."
+    },
+    "windowBay": {
+      "label": "Facade bay width",
+      "value": 7.6,
+      "unit": "m",
+      "estimate": "Read from the public renderings/photos (aerial and entrance renderings, pool view, entrance-sign photo; see Reference images) in an earlier session that could view them; this build environment could not download them. About 7.6 m (25 ft) bays. Long facades alternate a balcony bay (sliding door) with a window bay; end walls are all window bays, with the entry door centred on the ground floor."
+    },
+    "pairedWindow": {
+      "label": "Paired window",
+      "value": "1.9 x 1.6 m",
+      "estimate": "A pair of double-hung windows modelled as one fixed window with a two-by-two pane grid (Pascal's double-hung type draws a single pair of sashes); size by eye from the photos. Its head stays at least 0.15 m under the storey's wall top."
+    },
+    "windowSill": {
+      "label": "Window sill height",
+      "value": 0.75,
+      "unit": "m",
+      "estimate": "Typical residential sill height; not published."
+    },
+    "balconyColumn": {
+      "label": "Balcony column",
+      "value": 0.3,
+      "unit": "m square",
+      "estimate": "Read from the public renderings/photos (aerial and entrance renderings, pool view, entrance-sign photo; see Reference images) in an earlier session that could view them; this build environment could not download them. White square columns under the stacked balconies, two per stack, rising from the patio to the underside of the top balcony; size by eye."
+    },
+    "buildingWalk": {
+      "label": "Walk around each building",
+      "value": 2.5,
+      "unit": "m",
+      "estimate": "Concrete walks and patios around each building; width not published."
+    },
+    "pickleballCourts": {
+      "label": "Pickleball courts",
+      "value": "18 x 30 m surround for two courts",
+      "estimate": "Courts are published (see Outdoor amenities); two standard 44 x 20 ft courts on a fenced surround. Number of courts and position are estimates: placed on the nearest open lawn to the clubhouse."
+    },
+    "bocceCourts": {
+      "label": "Bocce courts",
+      "value": "25 x 9 m for two lanes",
+      "estimate": "Courts are published (see Outdoor amenities); two lanes of about 24 x 3.7 m with timber borders. Placed on the nearest open lawn to the pool; position estimated."
+    },
+    "barkPark": {
+      "label": "Bark park",
+      "value": "30 x 20 m",
+      "estimate": "Published (see Bark park and garages); size and position are estimates (open lawn in the west part of the site), fenced with black picket fencing."
+    },
+    "treeSpacing": {
+      "label": "Street tree spacing",
+      "value": 14,
+      "unit": "m",
+      "estimate": "Shade trees along the internal drives, read loosely from the aerial rendering; species, sizes and exact positions are not published. One Pascal procedural design (tree-design.json) with varied height and spread."
     }
   },
   "notes": [

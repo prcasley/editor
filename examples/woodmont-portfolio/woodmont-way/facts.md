@@ -23,7 +23,7 @@ A 443-unit, 13-building garden-style rental community completed in 2022, with a 
 | Scene nodes | 1160 (506 wall, 426 slab, 70 level, 55 zone, 53 ceiling, 17 building, 16 roof, 16 roof-segment, 1 site) |
 | Pascal MCP tool calls | 147 (clear_scene 1, get_scene 1, apply_patch 18, add_level 53, create_story_shell 53, create_roof 16, set_zone 2, validate_scene 1, verify_scene 1, export_json 1) |
 | `validate_scene` | valid, 0 errors, 0 warnings |
-| `verify_scene` | walls_no_doors x53 (e.g. "Ground floor has walls but no doors"); zones_no_ceilings x1 (e.g. "Grade has zones but no ceilings"); missing_stair x13 (e.g. "Residential building 4 has 4 storeys and no stair: add one on the ground floor, in the hall or entry, to connect them.") |
+| `verify_scene` | walls_no_doors x53 (e.g. "Ground floor has walls but no doors"); zones_no_ceilings x1 (e.g. "Grade has zones but no ceilings"); missing_stair x13 (e.g. "Clubhouse has 2 storeys and no stair: add one on the ground floor, in the hall or entry, to connect them.") |
 | Editor "Load build" check (`validateBuildJson`) | ok, 0 errors, 0 warnings |
 
 `verify_scene`'s `walls_no_doors` and `missing_stair` are expected here: a massing building is a stack of story shells with no doors or stairs (the typical building has both). `zones_no_ceilings` comes from the site zones on the grade level.

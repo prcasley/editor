@@ -15,11 +15,12 @@ import { renderFactsMd, type SceneCheck } from './lib/report'
 import { openSession, type PascalSession } from './lib/session'
 import type { SceneOutput } from './lib/types'
 import { buildSiteMassing, buildTypicalBuilding } from './woodmont-way/build'
+import { buildSiteDetailed } from './woodmont-way/build-detailed'
 
 type Builder = (s: PascalSession, facts: Facts, dir: string) => Promise<SceneOutput>
 
 const PROPERTIES: { slug: string; scenes: Builder[] }[] = [
-  { slug: 'woodmont-way', scenes: [buildSiteMassing, buildTypicalBuilding] },
+  { slug: 'woodmont-way', scenes: [buildSiteMassing, buildTypicalBuilding, buildSiteDetailed] },
   { slug: '111-main-street', scenes: [buildMain111] },
   { slug: 'alpha-78', scenes: [buildAlpha78] },
 ]

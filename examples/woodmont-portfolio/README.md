@@ -10,7 +10,7 @@ not a picture.
 
 | Property | Type | Scenes | Why it is here |
 |---|---|---|---|
-| [Woodmont Way](woodmont-way/facts.md), West Windsor NJ | 443-unit garden-style rental community, 13 buildings | `site-massing.json`, `typical-building.json` | The flagship: mapped footprints for every building, published unit and building counts, amenity list and photos |
+| [Woodmont Way](woodmont-way/facts.md), West Windsor NJ | 443-unit garden-style rental community, 13 buildings | `site-detailed.json`, `site-massing.json`, `typical-building.json` | The flagship: mapped footprints for every building, published unit and building counts, amenity list and photos |
 | [111 Main Street](111-main-street/facts.md), South Amboy NJ | 152,100 SF rear-load warehouse on 22 acres | `site-massing.json` | The leasing sheet publishes enough to derive the plan: a 195 ft deep space, a 60 ft speed bay and 56'6" x 45' column bays give 780 x 195 ft |
 | [Alpha 78 Logistics Center](alpha-78/facts.md), Alpha NJ | 450,457 SF cross-dock warehouse on 33.67 acres | `site-massing.json` | A different industrial type with a complete public count set: 118 docks, 4 drive-ins, 130 ft truck court, 89 trailer and 230 car spaces |
 
@@ -20,6 +20,20 @@ derivation, or its reason as an estimate), a generated `facts.md`, the scene fil
 
 ## What each scene contains
 
+- **Woodmont Way, detailed site** (`site-detailed.json`, built by
+  `woodmont-way/build-detailed.ts`): every mapped structure on its OpenStreetMap
+  footprint with the facade vocabulary read from the public renderings and photos.
+  Residential buildings get lap siding in white, tan, light gray or sage (Pascal's
+  `siding-lap-*` library finishes), a red-brick ground floor on every second building,
+  white trim bands between floors, paired windows in 7.6 m bays on every facade,
+  sliding doors to stacked balconies with railings on white square columns (patios at
+  grade), entry doors on the end walls, a stair per storey, and hip roofs in grey
+  asphalt shingles with cross-gables and gable dormers. Also the two-story clubhouse
+  (hip wings and a centre gable), the detached garages with garage doors, the
+  maintenance building, the tiled pool with its deck and cabana, the published
+  pickleball and bocce courts and bark park (positions estimated), streets, drives,
+  parking, building walks, lawn, and street trees made from one procedural tree design
+  (`tree-design.json`). Render viewpoints are in `cameras-detailed.json`.
 - **Woodmont Way, site massing**: all 16 mapped structures on their OpenStreetMap
   footprints (12 apartment buildings at 4 stories, the 2-story clubhouse, 2 detached
   garages, the maintenance building), each a Pascal building with one story shell per
@@ -62,7 +76,7 @@ true north as plan up; the typical building is drawn in its own axes.
 bun install
 bun run --cwd packages/mcp build                          # the MCP server and core
 bun examples/woodmont-portfolio/build.ts                  # every property
-bun examples/woodmont-portfolio/build.ts woodmont-way     # one property
+bun examples/woodmont-portfolio/build.ts woodmont-way     # one property (the detailed site takes several minutes)
 ```
 
 The script opens an in-process MCP client and server per scene, starts from
@@ -90,6 +104,10 @@ Estimated, and labelled as such in every `facts.md`:
   uncertainty. Photos and the aerial rendering show four floors on most buildings, but 4
   stories over the mapped footprints implies about 1,820 gross SF per unit, high for
   garden apartments, so some buildings are probably 3 stories.
+- **Woodmont Way facades** in the detailed site: the siding colours, brick bases,
+  trim, window bays, balconies, cross-gables and dormers follow what an earlier session
+  read from the public renderings and photos, but which building has which colour or a
+  brick base, the bay count on each facade and every amenity position are estimates.
 - **Interior layouts** of the typical building: units per floor, corridor, stair halls,
   balcony size, window rhythm.
 - **Industrial site layouts**: neither parcel geometry nor aerial imagery was reachable

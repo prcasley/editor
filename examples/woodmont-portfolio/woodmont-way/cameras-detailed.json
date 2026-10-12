@@ -1,0 +1,89 @@
+{
+  "coordinateSystem": "Pascal world coordinates: metres, x east, z south, y up; origin lat 40.3138, lon -74.6670 (see osm-extract.json).",
+  "cameras": {
+    "aerial": {
+      "position": [
+        256.6,
+        230,
+        276.7
+      ],
+      "target": [
+        6.5,
+        0,
+        46.6
+      ],
+      "fov": 40,
+      "note": "High oblique over the whole site from the south-east, like the published aerial rendering (without its roll)."
+    },
+    "entrance": {
+      "position": [
+        181,
+        1.7,
+        -93
+      ],
+      "target": [
+        124.4,
+        5,
+        -75.1
+      ],
+      "fov": 55,
+      "note": "Eye level where the entry drive (OSM way 1081085603) leaves the community road (OSM way 1011222095), looking south-west to the clubhouse with residential building OSM way 1011222098 on the left."
+    },
+    "pool": {
+      "position": [
+        90.8,
+        1.6,
+        -63.6
+      ],
+      "target": [
+        124.4,
+        4,
+        -81.1
+      ],
+      "fov": 60,
+      "note": "Eye level on the south-west corner of the pool deck looking north-east past the cabana to the clubhouse and the nearest buildings."
+    },
+    "street": {
+      "position": [
+        2,
+        1.6,
+        -56
+      ],
+      "target": [
+        62.8,
+        4,
+        1.2
+      ],
+      "fov": 55,
+      "note": "Eye level on the internal drive OSM way 1081085607 between residential buildings (OSM ways 1011222096 and 1011222097), looking south-east along both balcony facades."
+    },
+    "building-close": {
+      "position": [
+        -17.6,
+        16,
+        85.1
+      ],
+      "target": [
+        42,
+        7,
+        88.5
+      ],
+      "fov": 50,
+      "note": "Three-quarter view of the typical residential building (OSM way 1518661329), long balcony facade and one end."
+    },
+    "top": {
+      "position": [
+        6.5,
+        650,
+        46.7
+      ],
+      "target": [
+        6.5,
+        0,
+        46.6
+      ],
+      "fov": 45,
+      "note": "Plan view, north up (world -z)."
+    }
+  }
+}
