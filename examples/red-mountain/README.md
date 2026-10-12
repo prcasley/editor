@@ -106,3 +106,18 @@ scene.
   <https://hendricksoninc.com/wp-content/uploads/2025/06/Red-Mountain-01-Hendrickson-Construction.jpg>
 
 The photos belong to Hendrickson Construction and are not stored in this repository.
+
+## Drawing set
+
+`drawings/Red-Mountain-Drawing-Set.pdf` is a six-sheet set on 36 x 24 in paper, made from
+this scene with `examples/render-harness` (see its README):
+
+- **A0.0** renderings (Pascal viewer, and the model lit in a dusk scene) and a materials
+  schedule measured from the model: wall areas net of openings, glazing, rails, frames
+  and fascias, soffits, pavers and roof.
+- **A2.1 to A2.3** floor plans per level at 3/16" = 1'-0", from Pascal's own floor-plan
+  pipeline, with room names and areas.
+- **A3.1 and A3.2** south, west, north and east elevations at 3/16" = 1'-0", with level
+  datums.
+
+Every sheet is marked AI-inferred and not for construction.

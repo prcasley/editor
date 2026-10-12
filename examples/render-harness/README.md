@@ -34,3 +34,17 @@ How it works offline:
   is much slower in software.
 
 Renders are screenshots of the viewer canvas, not retouched.
+
+## Drawing sets
+
+`--sheets spec.json --sheets-out set.pdf` also writes a multi-sheet PDF through the
+editor's own sheet writer (`exportSheetsToPdf`). Plan pages run Pascal's floor-plan
+pipeline (`collectSheetGeometry`) for one level, so walls, openings, opening marks, stairs
+and dimension strings are exactly what the 2D editor draws; room names and areas are
+added from each zone. Image pages place renders (for example near-orthographic
+elevations, shot with a narrow field of view from far away) at a stated scale, with level
+datum lines. Every page gets a border and title block. See `src/sheets.ts` for the spec
+format and `examples/red-mountain/drawings/` for a full set.
+
+The sheet writer pipes into `blob-stream`, which needs Node streams; `src/blob-stream-shim.js`
+stands in for it in the browser.

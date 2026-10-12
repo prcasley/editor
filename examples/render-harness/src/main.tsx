@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import type { PerspectiveCamera } from 'three'
 import { MATERIAL_CATALOG } from '../../../packages/core/src/material-library'
+import { exportDrawingSet, type SheetSpec } from './sheets'
 
 // Catalog finishes point at `_512.ktx2` maps on the assets CDN. Offline, the
 // same finishes ship in apps/editor/public as `.webp`; the render script sends
@@ -41,6 +42,7 @@ declare global {
   interface Window {
     __harness: { ready: boolean; error: string | null; nodes: number }
     __exportGlb?: () => Promise<string>
+    __exportDrawingSet?: () => Promise<void>
   }
 }
 window.__harness = { ready: false, error: null, nodes: 0 }
@@ -83,6 +85,13 @@ function GlbExportHook() {
     }
   }, [scene])
   return null
+}
+
+// Writes a drawing set (Pascal plan sheets + image sheets) for the loaded scene;
+// the spec comes from the render script at /sheets.json.
+window.__exportDrawingSet = async () => {
+  const spec: SheetSpec = await fetch('/sheets.json').then((r) => r.json())
+  await exportDrawingSet(useScene.getState().nodes, spec, 'drawing-set.pdf')
 }
 
 function App() {

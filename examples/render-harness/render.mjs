@@ -47,6 +47,10 @@ const postFx = args.includes('--postfx')
 // Also save Pascal's own GLB export of the scene (after the first good frame).
 const glbPath = flag('glb', null)
 let glbDone = false
+// Also write a drawing set: --sheets spec.json --sheets-out set.pdf (see src/sheets.ts).
+const sheetsSpec = flag('sheets', null)
+const sheetsOut = flag('sheets-out', null)
+let sheetsDone = false
 
 const rawCams = JSON.parse(readFileSync(camerasPath, 'utf8'))
 const cameras = (
@@ -66,6 +70,7 @@ const types = {
   '.jpg': 'image/jpeg',
   '.hdr': 'application/octet-stream',
   '.glb': 'model/gltf-binary',
+  '.ttf': 'font/ttf',
 }
 const page = `<!doctype html><html><head><meta charset="utf-8"><style>html,body,#root{margin:0;height:100%;background:#000;overflow:hidden}</style></head><body><div id="root"></div><script type="module" src="/dist/main.js"></script></body></html>`
 
@@ -112,6 +117,10 @@ const server = createServer((req, res) => {
   if (url === '/scene.json') return send(res, resolve(scenePath))
   if (url === '/texture-map.json')
     return res.writeHead(200, { 'content-type': 'application/json' }).end(textureMapJson)
+  if (url === '/sheets.json' && sheetsSpec) return send(res, resolve(sheetsSpec))
+  // The PDF writer resolves its fonts next to its own module, i.e. next to the bundle.
+  if (url.startsWith('/dist/pdf-fonts/'))
+    return send(res, join(root, 'packages/editor/src/lib/floorplan', url.slice(6)))
   if (url.startsWith('/dist/')) return send(res, join(here, url))
   if (url.startsWith('/basis/')) return send(res, join(basisDir, url.slice(7)))
   return send(res, join(publicDir, url))
@@ -175,7 +184,7 @@ for (const cam of cameras) {
       .catch((e) => ({ error: `timeout: ${e.message.slice(0, 80)}` })),
   ])
   const out = join(outDir, `${cam.name}.png`)
-  await tab.screenshot({ path: out })
+  await tab.screenshot({ path: out, timeout: 300_000 })
   if (glbPath && !state.error && !glbDone) {
     const b64 = await tab
       .evaluate(() => window.__exportGlb())
@@ -187,6 +196,21 @@ for (const cam of cameras) {
       writeFileSync(glbPath, Buffer.from(b64, 'base64'))
       glbDone = true
       console.log(`  glb -> ${glbPath} (${(statSync(glbPath).size / 1e6).toFixed(1)} MB)`)
+    }
+  }
+  if (sheetsSpec && sheetsOut && !state.error && !sheetsDone) {
+    try {
+      const [download] = await Promise.all([
+        tab.waitForEvent('download', { timeout: 300_000 }),
+        tab.evaluate(() => window.__exportDrawingSet()),
+      ])
+      await download.saveAs(sheetsOut)
+      sheetsDone = true
+      console.log(
+        `  drawing set -> ${sheetsOut} (${(statSync(sheetsOut).size / 1e6).toFixed(1)} MB)`,
+      )
+    } catch (e) {
+      console.log(`  drawing set failed: ${String(e).slice(0, 300)}`)
     }
   }
   console.log(

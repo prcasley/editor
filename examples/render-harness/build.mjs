@@ -35,6 +35,17 @@ const pascalSources = {
   },
 }
 
+// The sheet PDF writer pipes into `blob-stream`, which needs Node streams; a
+// small browser version stands in for it.
+const blobStreamShim = {
+  name: 'blob-stream-shim',
+  setup(b) {
+    b.onResolve({ filter: /^blob-stream$/ }, () => ({
+      path: join(here, 'src/blob-stream-shim.js'),
+    }))
+  },
+}
+
 // Node-only or prebuilt-worker imports that a static render never executes
 // (PDF export, the geometry-script worker bundle) resolve to an empty module.
 const emptyShims = {
@@ -62,7 +73,7 @@ await build({
   define: { 'process.env.NODE_ENV': '"production"' },
   // A few dependencies read other `process.env` keys at module load.
   banner: { js: 'globalThis.process ??= { env: { NODE_ENV: "production" } };' },
-  plugins: [emptyShims, pascalSources],
+  plugins: [blobStreamShim, emptyShims, pascalSources],
   logLevel: 'warning',
 })
 console.log('built', join(here, 'dist/main.js'))

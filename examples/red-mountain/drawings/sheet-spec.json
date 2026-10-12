@@ -1,0 +1,254 @@
+{
+ "project": {
+  "name": "RED MOUNTAIN RESIDENCE",
+  "location": "ASPEN, CO",
+  "lines": [
+   "Builder: Hendrickson Construction",
+   "Rebuilt from one public photo",
+   "Editable Pascal model, 139 nodes"
+  ],
+  "issued": "10/12/2026",
+  "stamp": "NOT FOR CONSTRUCTION"
+ },
+ "sheet": {
+  "widthIn": 36,
+  "heightIn": 24
+ },
+ "pages": [
+  {
+   "kind": "images",
+   "number": "A0.0",
+   "title": "COVER\nRENDERINGS",
+   "images": [
+    {
+     "dataUrl": "(embedded at build time: renders / materials schedule)",
+     "rect": {
+      "x": 1.2,
+      "y": 1.2,
+      "w": 16.0,
+      "h": 9.0
+     },
+     "label": "PERSPECTIVE - PASCAL VIEWER",
+     "scaleLabel": "Hero photo angle, not to scale",
+     "index": 1
+    },
+    {
+     "dataUrl": "(embedded at build time: renders / materials schedule)",
+     "rect": {
+      "x": 18.0,
+      "y": 1.2,
+      "w": 12.4,
+      "h": 6.975
+     },
+     "label": "DUSK - PASCAL MODEL IN SCENE",
+     "scaleLabel": "Not to scale",
+     "index": 2
+    },
+    {
+     "dataUrl": "(embedded at build time: renders / materials schedule)",
+     "rect": {
+      "x": 1.2,
+      "y": 12.6,
+      "w": 16.0,
+      "h": 9.0
+     },
+     "label": "AERIAL - PASCAL VIEWER",
+     "scaleLabel": "Not to scale",
+     "index": 3
+    },
+    {
+     "dataUrl": "(embedded at build time: renders / materials schedule)",
+     "rect": {
+      "x": 18.0,
+      "y": 9.7,
+      "w": 12.4,
+      "h": 11.253333333333334
+     },
+     "label": "MATERIALS SCHEDULE",
+     "scaleLabel": "Quantities from the Pascal model",
+     "index": 4
+    }
+   ]
+  },
+  {
+   "kind": "plan",
+   "number": "A2.1",
+   "title": "LEVEL 1\nFLOOR PLAN",
+   "drawingTitle": "LEVEL 1 FLOOR PLAN - INFERRED",
+   "levelName": "Level 1",
+   "drawingType": "floor-plan",
+   "scaleLabel": "3/16\" = 1'-0\"",
+   "metresPerInch": 1.6256
+  },
+  {
+   "kind": "plan",
+   "number": "A2.2",
+   "title": "LEVEL 2\nFLOOR PLAN",
+   "drawingTitle": "LEVEL 2 FLOOR PLAN - INFERRED",
+   "levelName": "Level 2",
+   "drawingType": "floor-plan",
+   "scaleLabel": "3/16\" = 1'-0\"",
+   "metresPerInch": 1.6256
+  },
+  {
+   "kind": "plan",
+   "number": "A2.3",
+   "title": "LEVEL 3\nFLOOR PLAN",
+   "drawingTitle": "LEVEL 3 FLOOR PLAN - INFERRED",
+   "levelName": "Level 3",
+   "drawingType": "floor-plan",
+   "scaleLabel": "3/16\" = 1'-0\"",
+   "metresPerInch": 1.6256
+  },
+  {
+   "kind": "images",
+   "number": "A3.1",
+   "title": "EXTERIOR\nELEVATIONS",
+   "images": [
+    {
+     "dataUrl": "(embedded at build time: drawings/elevation-south.png)",
+     "rect": {
+      "x": 2.0,
+      "y": 1.3,
+      "w": 27.06692913385827,
+      "h": 9.53494094488189
+     },
+     "label": "SOUTH ELEVATION - INFERRED",
+     "scaleLabel": "3/16\" = 1'-0\"",
+     "index": 2,
+     "frame": {
+      "yMinM": -1.0,
+      "yMaxM": 14.5
+     },
+     "datums": [
+      {
+       "label": "T.O. SLAB @ LEVEL 1",
+       "elevM": 0.0
+      },
+      {
+       "label": "T.O. SLAB @ LEVEL 2",
+       "elevM": 3.7186
+      },
+      {
+       "label": "T.O. SLAB @ LEVEL 3",
+       "elevM": 7.4981
+      },
+      {
+       "label": "T.O. ROOF",
+       "elevM": 10.6985
+      }
+     ]
+    },
+    {
+     "dataUrl": "(embedded at build time: drawings/elevation-west.png)",
+     "rect": {
+      "x": 8.151574803149607,
+      "y": 13.03,
+      "w": 14.763779527559056,
+      "h": 9.53494094488189
+     },
+     "label": "WEST ELEVATION - INFERRED",
+     "scaleLabel": "3/16\" = 1'-0\"",
+     "index": 1,
+     "frame": {
+      "yMinM": -1.0,
+      "yMaxM": 14.5
+     },
+     "datums": [
+      {
+       "label": "T.O. SLAB @ LEVEL 1",
+       "elevM": 0.0
+      },
+      {
+       "label": "T.O. SLAB @ LEVEL 2",
+       "elevM": 3.7186
+      },
+      {
+       "label": "T.O. SLAB @ LEVEL 3",
+       "elevM": 7.4981
+      },
+      {
+       "label": "T.O. ROOF",
+       "elevM": 10.6985
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "images",
+   "number": "A3.2",
+   "title": "EXTERIOR\nELEVATIONS",
+   "images": [
+    {
+     "dataUrl": "(embedded at build time: drawings/elevation-north.png)",
+     "rect": {
+      "x": 2.0,
+      "y": 1.3,
+      "w": 27.06692913385827,
+      "h": 9.53494094488189
+     },
+     "label": "NORTH ELEVATION - INFERRED",
+     "scaleLabel": "3/16\" = 1'-0\"",
+     "index": 2,
+     "frame": {
+      "yMinM": -1.0,
+      "yMaxM": 14.5
+     },
+     "datums": [
+      {
+       "label": "T.O. SLAB @ LEVEL 1",
+       "elevM": 0.0
+      },
+      {
+       "label": "T.O. SLAB @ LEVEL 2",
+       "elevM": 3.7186
+      },
+      {
+       "label": "T.O. SLAB @ LEVEL 3",
+       "elevM": 7.4981
+      },
+      {
+       "label": "T.O. ROOF",
+       "elevM": 10.6985
+      }
+     ]
+    },
+    {
+     "dataUrl": "(embedded at build time: drawings/elevation-east.png)",
+     "rect": {
+      "x": 8.151574803149607,
+      "y": 13.03,
+      "w": 14.763779527559056,
+      "h": 9.53494094488189
+     },
+     "label": "EAST ELEVATION - INFERRED",
+     "scaleLabel": "3/16\" = 1'-0\"",
+     "index": 1,
+     "frame": {
+      "yMinM": -1.0,
+      "yMaxM": 14.5
+     },
+     "datums": [
+      {
+       "label": "T.O. SLAB @ LEVEL 1",
+       "elevM": 0.0
+      },
+      {
+       "label": "T.O. SLAB @ LEVEL 2",
+       "elevM": 3.7186
+      },
+      {
+       "label": "T.O. SLAB @ LEVEL 3",
+       "elevM": 7.4981
+      },
+      {
+       "label": "T.O. ROOF",
+       "elevM": 10.6985
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
